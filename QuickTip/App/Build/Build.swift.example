@@ -1,0 +1,8 @@
+
+class Build {
+    #if DEBUG || ADHOC
+    static let instance = ProductionBuild()
+    #else
+    static let instance = ProductionBuild()
+    #endif
+}

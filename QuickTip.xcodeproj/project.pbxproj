@@ -9,10 +9,24 @@
 /* Begin PBXBuildFile section */
 		AD32979E99E18070F313DF5D /* Pods_QuickTip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C50AD74F04248C933509527 /* Pods_QuickTip.framework */; };
 		C1A059C520720915007508BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059C420720915007508BE /* AppDelegate.swift */; };
-		C1A059C720720915007508BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059C620720915007508BE /* ViewController.swift */; };
 		C1A059CA20720915007508BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1A059C820720915007508BE /* Main.storyboard */; };
 		C1A059CC20720915007508BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1A059CB20720915007508BE /* Assets.xcassets */; };
 		C1A059CF20720915007508BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1A059CD20720915007508BE /* LaunchScreen.storyboard */; };
+		C1A059E120720D8A007508BE /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059D820720D8A007508BE /* Build.swift */; };
+		C1A059E220720D8A007508BE /* Build.swift.example in Resources */ = {isa = PBXBuildFile; fileRef = C1A059D920720D8A007508BE /* Build.swift.example */; };
+		C1A059E320720D8A007508BE /* DemoBuild.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059DA20720D8A007508BE /* DemoBuild.swift */; };
+		C1A059E420720D8A007508BE /* DevelopmentBuild.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059DB20720D8A007508BE /* DevelopmentBuild.swift */; };
+		C1A059E520720D8A007508BE /* ProductionBuild.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059DC20720D8A007508BE /* ProductionBuild.swift */; };
+		C1A059E620720D8A007508BE /* GLabelSpec+My.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059DD20720D8A007508BE /* GLabelSpec+My.swift */; };
+		C1A059E720720D8A007508BE /* MyHttpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059DE20720D8A007508BE /* MyHttpDelegate.swift */; };
+		C1A059E820720D8A007508BE /* MyMenuNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059DF20720D8A007508BE /* MyMenuNavController.swift */; };
+		C1A059E920720D8A007508BE /* UIColor+My.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059E020720D8A007508BE /* UIColor+My.swift */; };
+		C1A059EC20720E55007508BE /* ReceiveScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059EB20720E55007508BE /* ReceiveScreen.swift */; };
+		C1A059EF20720ECA007508BE /* SendScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059EE20720ECA007508BE /* SendScreen.swift */; };
+		C1A059F5207214CB007508BE /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059F1207214CA007508BE /* Transaction.swift */; };
+		C1A059F6207214CB007508BE /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059F2207214CA007508BE /* TransactionCell.swift */; };
+		C1A059F7207214CB007508BE /* TransactionDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059F3207214CA007508BE /* TransactionDetailScreen.swift */; };
+		C1A059F8207214CB007508BE /* TransactionListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059F4207214CA007508BE /* TransactionListScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,11 +34,25 @@
 		66541C5C9A0894A28892E929 /* Pods-QuickTip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTip.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTip/Pods-QuickTip.release.xcconfig"; sourceTree = "<group>"; };
 		C1A059C120720915007508BE /* QuickTip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickTip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1A059C420720915007508BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C1A059C620720915007508BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C1A059C920720915007508BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C1A059CB20720915007508BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1A059CE20720915007508BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1A059D020720915007508BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1A059D820720D8A007508BE /* Build.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
+		C1A059D920720D8A007508BE /* Build.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Build.swift.example; sourceTree = "<group>"; };
+		C1A059DA20720D8A007508BE /* DemoBuild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoBuild.swift; sourceTree = "<group>"; };
+		C1A059DB20720D8A007508BE /* DevelopmentBuild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevelopmentBuild.swift; sourceTree = "<group>"; };
+		C1A059DC20720D8A007508BE /* ProductionBuild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductionBuild.swift; sourceTree = "<group>"; };
+		C1A059DD20720D8A007508BE /* GLabelSpec+My.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GLabelSpec+My.swift"; sourceTree = "<group>"; };
+		C1A059DE20720D8A007508BE /* MyHttpDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHttpDelegate.swift; sourceTree = "<group>"; };
+		C1A059DF20720D8A007508BE /* MyMenuNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMenuNavController.swift; sourceTree = "<group>"; };
+		C1A059E020720D8A007508BE /* UIColor+My.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+My.swift"; sourceTree = "<group>"; };
+		C1A059EB20720E55007508BE /* ReceiveScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveScreen.swift; sourceTree = "<group>"; };
+		C1A059EE20720ECA007508BE /* SendScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendScreen.swift; sourceTree = "<group>"; };
+		C1A059F1207214CA007508BE /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		C1A059F2207214CA007508BE /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		C1A059F3207214CA007508BE /* TransactionDetailScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailScreen.swift; sourceTree = "<group>"; };
+		C1A059F4207214CA007508BE /* TransactionListScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionListScreen.swift; sourceTree = "<group>"; };
 		F6A2607316CC2D76F283D744 /* Pods-QuickTip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTip/Pods-QuickTip.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,14 +106,68 @@
 		C1A059C320720915007508BE /* QuickTip */ = {
 			isa = PBXGroup;
 			children = (
+				C1A059F0207214CA007508BE /* Transaction */,
+				C1A059ED20720ECA007508BE /* Send */,
+				C1A059EA20720E55007508BE /* Receive */,
+				C1A059D620720D8A007508BE /* App */,
 				C1A059C420720915007508BE /* AppDelegate.swift */,
-				C1A059C620720915007508BE /* ViewController.swift */,
 				C1A059C820720915007508BE /* Main.storyboard */,
 				C1A059CB20720915007508BE /* Assets.xcassets */,
 				C1A059CD20720915007508BE /* LaunchScreen.storyboard */,
 				C1A059D020720915007508BE /* Info.plist */,
 			);
 			path = QuickTip;
+			sourceTree = "<group>";
+		};
+		C1A059D620720D8A007508BE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C1A059D720720D8A007508BE /* Build */,
+				C1A059DD20720D8A007508BE /* GLabelSpec+My.swift */,
+				C1A059DE20720D8A007508BE /* MyHttpDelegate.swift */,
+				C1A059DF20720D8A007508BE /* MyMenuNavController.swift */,
+				C1A059E020720D8A007508BE /* UIColor+My.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C1A059D720720D8A007508BE /* Build */ = {
+			isa = PBXGroup;
+			children = (
+				C1A059D820720D8A007508BE /* Build.swift */,
+				C1A059D920720D8A007508BE /* Build.swift.example */,
+				C1A059DA20720D8A007508BE /* DemoBuild.swift */,
+				C1A059DB20720D8A007508BE /* DevelopmentBuild.swift */,
+				C1A059DC20720D8A007508BE /* ProductionBuild.swift */,
+			);
+			path = Build;
+			sourceTree = "<group>";
+		};
+		C1A059EA20720E55007508BE /* Receive */ = {
+			isa = PBXGroup;
+			children = (
+				C1A059EB20720E55007508BE /* ReceiveScreen.swift */,
+			);
+			path = Receive;
+			sourceTree = "<group>";
+		};
+		C1A059ED20720ECA007508BE /* Send */ = {
+			isa = PBXGroup;
+			children = (
+				C1A059EE20720ECA007508BE /* SendScreen.swift */,
+			);
+			path = Send;
+			sourceTree = "<group>";
+		};
+		C1A059F0207214CA007508BE /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				C1A059F1207214CA007508BE /* Transaction.swift */,
+				C1A059F2207214CA007508BE /* TransactionCell.swift */,
+				C1A059F3207214CA007508BE /* TransactionDetailScreen.swift */,
+				C1A059F4207214CA007508BE /* TransactionListScreen.swift */,
+			);
+			path = Transaction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1A059E220720D8A007508BE /* Build.swift.example in Resources */,
 				C1A059CF20720915007508BE /* LaunchScreen.storyboard in Resources */,
 				C1A059CC20720915007508BE /* Assets.xcassets in Resources */,
 				C1A059CA20720915007508BE /* Main.storyboard in Resources */,
@@ -167,32 +250,48 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-QuickTip/Pods-QuickTip-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-Synchronous/Alamofire_Synchronous.framework",
+				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/GaniLib/GaniLib.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCode/QRCode.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/libsodium/libsodium.framework",
+				"${BUILT_PRODUCTS_DIR}/secp256k1_ios/secp256k1_ios.framework",
+				"${BUILT_PRODUCTS_DIR}/web3swift/web3swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_Synchronous.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GaniLib.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libsodium.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1_ios.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/web3swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -239,8 +338,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1A059C720720915007508BE /* ViewController.swift in Sources */,
+				C1A059E720720D8A007508BE /* MyHttpDelegate.swift in Sources */,
+				C1A059F7207214CB007508BE /* TransactionDetailScreen.swift in Sources */,
+				C1A059F8207214CB007508BE /* TransactionListScreen.swift in Sources */,
+				C1A059E420720D8A007508BE /* DevelopmentBuild.swift in Sources */,
+				C1A059EC20720E55007508BE /* ReceiveScreen.swift in Sources */,
 				C1A059C520720915007508BE /* AppDelegate.swift in Sources */,
+				C1A059F5207214CB007508BE /* Transaction.swift in Sources */,
+				C1A059E520720D8A007508BE /* ProductionBuild.swift in Sources */,
+				C1A059E120720D8A007508BE /* Build.swift in Sources */,
+				C1A059F6207214CB007508BE /* TransactionCell.swift in Sources */,
+				C1A059EF20720ECA007508BE /* SendScreen.swift in Sources */,
+				C1A059E320720D8A007508BE /* DemoBuild.swift in Sources */,
+				C1A059E620720D8A007508BE /* GLabelSpec+My.swift in Sources */,
+				C1A059E820720D8A007508BE /* MyMenuNavController.swift in Sources */,
+				C1A059E920720D8A007508BE /* UIColor+My.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

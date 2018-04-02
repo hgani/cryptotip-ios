@@ -1,12 +1,4 @@
-//
-//  AppDelegate.swift
-//  QuickTip
-//
-//  Created by Hendrik on 2/4/18.
-//  Copyright © 2018 QuickTip. All rights reserved.
-//
-
-import UIKit
+import GaniLib
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +7,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        GHttp.instance.initialize(buildConfig: Build.instance, delegate: MyHttpDelegate())
+        let app = GApp.instance.withNav(GNavigationController(rootViewController: SendScreen()))
+        self.window = app.window
+        
         // Override point for customization after application launch.
         return true
     }

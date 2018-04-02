@@ -10,5 +10,6 @@ target 'QuickTip' do
   
   pod 'QRCodeReader.swift', '~> 8.0'
   pod 'QRCode', '~> 2.0'
+  pod 'web3swift', git: 'https://github.com/bankex/web3swift.git'
 end
 
