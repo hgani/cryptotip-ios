@@ -1,0 +1,8 @@
+*.swp
+creds
+*.xcworkspace
+Pods
+Build.swift
+dist/
+xcuserdata/
+

@@ -1,0 +1,60 @@
+PODS:
+  - Alamofire (4.6.0)
+  - Eureka (4.0.1)
+  - GaniLib (0.5.1):
+    - Alamofire
+    - Eureka (~> 4.0)
+    - GaniLib/Core (= 0.5.1)
+    - Kingfisher (~> 4.0)
+    - SideMenu (~> 3.0)
+    - SnapKit (~> 4.0)
+    - SVProgressHUD
+    - SwiftIconFont (~> 2.7)
+    - SwiftyJSON
+    - TTTAttributedLabel
+  - GaniLib/Core (0.5.1):
+    - Alamofire
+    - Eureka (~> 4.0)
+    - Kingfisher (~> 4.0)
+    - SideMenu (~> 3.0)
+    - SnapKit (~> 4.0)
+    - SVProgressHUD
+    - SwiftIconFont (~> 2.7)
+    - SwiftyJSON
+    - TTTAttributedLabel
+  - Kingfisher (4.6.1)
+  - QRCode (2.0)
+  - QRCodeReader.swift (8.0.4)
+  - SideMenu (3.1.5)
+  - SnapKit (4.0.0)
+  - SVProgressHUD (2.2.2)
+  - SwiftIconFont (2.7.3)
+  - SwiftyJSON (4.0.0)
+  - TTTAttributedLabel (2.0.0)
+
+DEPENDENCIES:
+  - GaniLib (from `../ganilib-ios`)
+  - QRCode
+  - QRCodeReader.swift (~> 8.0)
+
+EXTERNAL SOURCES:
+  GaniLib:
+    :path: ../ganilib-ios
+
+SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
+  GaniLib: 03d1b965b7c91d019e4c43ba45f9594fa63cadf9
+  Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
+  QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
+  QRCodeReader.swift: 9730cfa7ed5f0dd839765df8cf18d41db20e4081
+  SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
+  SwiftIconFont: ebd8ee931a1e7072b61a87aec53f3a0786ef7f2b
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+
+PODFILE CHECKSUM: 94b4b97f2e1ae01a9f23e8479d4433e5bad546f0
+
+COCOAPODS: 1.3.1
