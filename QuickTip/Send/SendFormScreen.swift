@@ -29,6 +29,13 @@ class SendFormScreen: GFormScreen {
         
         form += [section]
         
+        section.header = setupHeaderFooter() { view in
+            view
+                .paddings(t: 10, l: 15, b: 10, r: 15)
+                .append(GLabel().text("To: \(self.to)"))
+                .end()
+        }
+        
         section.append(TextRow(nil) { row in
             row.title = "Amount in AUD"
         }.onChange { row in
@@ -39,21 +46,16 @@ class SendFormScreen: GFormScreen {
         
         section.append(amountField)
         
-        let submitRow = ButtonRow() { row in
+        section.append(ButtonRow() { row in
             row.title = "Submit"
-        }.onCellSelection { (cell, row) in
-            let values = self.values()
-            GLog.t("VALUES: \(values)")
-        }
-        
-        section.header = setupHeaderFooter() { view in
-            view
-                .paddings(t: 10, l: 20, b: 10, r: 20)
-                .append(GLabel().text("To: \(self.to)"))
-                .end()
-        }
-        
-        section.append(submitRow)
+            }.onCellSelection { (cell, row) in
+                let values = self.values()
+                if let amount = Float(values["amount"] as! String) {
+                    let url = "ethereum:\(self.to)?amount=\(amount)"
+                    GLog.i("URL: \(url)")
+                    self.launch.url(url)
+                }
+        })
 
 //        self
 //            .leftMenu(controller: MyMenuNavController())
