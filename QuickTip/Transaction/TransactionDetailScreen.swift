@@ -16,7 +16,8 @@ class TransactionDetailScreen: GScreen {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nav.title(transaction.hash)
+        self.title = transaction.hash
+        nav
             .color(bg: .navbarBg, text: .navbarText)
         
         container.addView(

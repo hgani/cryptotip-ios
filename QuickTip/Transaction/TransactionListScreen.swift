@@ -16,7 +16,9 @@ class TransactionListScreen: GScreen {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nav.title("Transactions")
+        self.title = "Transactions"
+        
+        nav
             .color(bg: .navbarBg, text: .navbarText)
 
         self

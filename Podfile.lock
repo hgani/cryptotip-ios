@@ -17,6 +17,7 @@ PODS:
     - SwiftIconFont (~> 2.7)
     - SwiftyJSON
     - TTTAttributedLabel
+    - XLPagerTabStrip (~> 8.0)
   - GaniLib/Core (0.5.1):
     - Alamofire
     - Eureka (~> 4.0)
@@ -27,6 +28,7 @@ PODS:
     - SwiftIconFont (~> 2.7)
     - SwiftyJSON
     - TTTAttributedLabel
+    - XLPagerTabStrip (~> 8.0)
   - Kingfisher (4.6.1)
   - libsodium (1.0.12)
   - QRCode (2.0)
@@ -48,6 +50,7 @@ PODS:
     - libsodium (~> 1.0.12)
     - Result (~> 3.0.0)
     - secp256k1_ios (~> 0.1.2)
+  - XLPagerTabStrip (8.0.1)
 
 DEPENDENCIES:
   - GaniLib (from `../ganilib-ios`)
@@ -72,7 +75,7 @@ SPEC CHECKSUMS:
   BigInt: 8e8a52161c745cd3ab78e3dc346a9fbee51e6cf6
   CryptoSwift: 033efc3523865d19cc6ab6612fa17a62613b5dfa
   Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
-  GaniLib: 03d1b965b7c91d019e4c43ba45f9594fa63cadf9
+  GaniLib: a2c7093f578a9806cce2d4cd18d24ea7eb3450b3
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   libsodium: 9a8faa5ef2fa0d2d57bd7f7d79bf8fb7c1a9f0ea
   QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
@@ -87,6 +90,7 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   web3swift: 1f5e5bd7fff73409c3161d1db8607e791c8c3b7b
+  XLPagerTabStrip: c908b17cbf42fcd2598ee1adfc49bae25444d88a
 
 PODFILE CHECKSUM: 6ba610f1bf6495636bad5da9cff85a30262d0784
 

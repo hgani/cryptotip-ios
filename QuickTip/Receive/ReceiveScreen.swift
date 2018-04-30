@@ -6,7 +6,8 @@ class ReceiveScreen: GScreen {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nav.title("Receive")
+        self.title = "Receive"
+        nav
             .color(bg: .navbarBg, text: .navbarText)
 
         self

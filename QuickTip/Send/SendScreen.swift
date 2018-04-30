@@ -6,7 +6,9 @@ class SendScreen: GScreen {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nav.title("Send")
+        self.title = "Send"
+        
+        nav
             .color(bg: .navbarBg, text: .navbarText)
 
         self
@@ -56,6 +58,7 @@ class SendScreen: GScreen {
 //            }
 //            return false
 //        }
+        self.nav.push(SendFormScreen(to: code))
     }
 }
 
