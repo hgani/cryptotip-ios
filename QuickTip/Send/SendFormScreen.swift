@@ -6,12 +6,23 @@ class SendFormScreen: GFormScreen {
     private let to: String
     private var section = Section()
     
+    private var destinationField = TextRow("to") { row in
+        row.title = "Send to"
+    }
+    
+    private var conversionField = DataListRow(nil) { row in
+        row.title = "AUD Amount"
+        row.options = ["5", "10", "20"]
+//        row.cellStyle = .subtitle
+    }
+    
     private var amountField = TextRow("amount") { row in
-        row.title = "Amount in ETH"
+        row.title = "ETH to be sent"
     }
     
     init(to: String) {
         self.to = to
+        destinationField.value = to
         super.init()
     }
     
@@ -32,22 +43,19 @@ class SendFormScreen: GFormScreen {
         section.header = setupHeaderFooter() { view in
             view
                 .paddings(t: 10, l: 15, b: 10, r: 15)
-                .append(GLabel().text("To: \(self.to)"))
+//                .append(GLabel().text("To: \(self.to)"))
                 .end()
         }
         
-        section.append(TextRow(nil) { row in
-            row.title = "Amount in AUD"
-        }.onChange { row in
-            if let dollarAmount = Float(row.value ?? "") {
-                self.amountField.value = String(dollarAmount / self.conversionRate)
-            }
-        })
+        section.append(destinationField)
+        section.append(conversionField)
         
+//            .intro("The amount of ETH to be sent will be calculated based on Specify amount in AUD\n\n1 ETH = AUD")
+
         section.append(amountField)
         
         section.append(ButtonRow() { row in
-            row.title = "Submit"
+            row.title = "Review"
             }.onCellSelection { (cell, row) in
                 let values = self.values()
                 if let amount = Float(values["amount"] as! String) {
@@ -56,6 +64,13 @@ class SendFormScreen: GFormScreen {
                     self.launch.url(url)
                 }
         })
+        
+        conversionField.onChange { row in
+            if let dollarAmount = Float(row.value ?? "") {
+                self.amountField.value = String(dollarAmount * self.conversionRate)
+                self.tableView.reloadData()
+            }
+        }
 
 //        self
 //            .leftMenu(controller: MyMenuNavController())
@@ -66,9 +81,16 @@ class SendFormScreen: GFormScreen {
     }
     
     override func onRefresh() {
-        _ = Rest.get(url: "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=AUD").execute(indicator: refresher) { result in
+        _ = Rest.get(url: "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=AUD").execute(indicator: .null) { result in
             if let rate = result["AUD"].float {
-                self.conversionRate = rate
+                self.conversionRate = 1 / rate
+//                self.conversionField.cellUpdate { cell, _ in
+//                    cell.detailTextLabel?.text = "1 AUD = \(self.conversionRate) ETH"
+//                }
+                
+                self.conversionField
+                    .intro("Specify the amount you want to send in AUD\n1 AUD = \(self.conversionRate) ETH")
+                self.tableView.reloadData()
                 return true
             }
             return false
@@ -84,7 +106,7 @@ class SendFormScreen: GFormScreen {
             return UITableViewAutomaticDimension
         }
         headerFooter.onSetupView = { view, section in
-            populate(view)
+            populate(view.clear())
         }
         return headerFooter
     }

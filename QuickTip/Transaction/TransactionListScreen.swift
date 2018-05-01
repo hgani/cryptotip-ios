@@ -3,11 +3,11 @@ import GaniLib
 class TransactionListScreen: GScreen {
     fileprivate let tableView = GTableView()
     fileprivate var transactions = [Transaction]()
-    lazy fileprivate var refresher: GRefreshControl = {
-        return GRefreshControl().onValueChanged {
-            self.onRefresh()
-        }
-    }()
+//    lazy fileprivate var refresher: GRefreshControl = {
+//        return GRefreshControl().onValueChanged {
+//            self.onRefresh()
+//        }
+//    }()
     
     open override func screenContent() -> UIView {
         return self.tableView
