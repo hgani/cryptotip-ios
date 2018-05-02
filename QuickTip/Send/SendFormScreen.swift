@@ -4,20 +4,22 @@ import Eureka
 class SendFormScreen: GFormScreen {
     private var conversionRate: Float = 0.0
     private let to: String
-    private var section = Section()
+    private var section1 = Section()
+    private var section2 = Section()
     
-    private var destinationField = TextRow("to") { row in
-        row.title = "Send to"
-    }
+    private let conversionLabel = GLabel().font(nil, size: 14)
     
-    private var conversionField = DataListRow(nil) { row in
+    private let conversionField = DataListRow(nil) { row in
         row.title = "AUD Amount"
         row.options = ["5", "10", "20"]
-//        row.cellStyle = .subtitle
     }
     
-    private var amountField = TextRow("amount") { row in
+    private let amountField = TextRow("amount") { row in
         row.title = "ETH to be sent"
+    }
+    
+    private let destinationField = TextRow("to") { row in
+        row.title = "Send to"
     }
     
     init(to: String) {
@@ -38,24 +40,22 @@ class SendFormScreen: GFormScreen {
         nav
             .color(bg: .navbarBg, text: .navbarText)
         
-        form += [section]
+        form += [section1, section2]
         
-        section.header = setupHeaderFooter() { view in
+        section1.append(destinationField)
+        
+        section2.header = setupHeaderFooter() { view in
             view
-                .paddings(t: 10, l: 15, b: 10, r: 15)
-//                .append(GLabel().text("To: \(self.to)"))
+                .paddings(t: 10, l: 20, b: 10, r: 20)
+                .append(self.conversionLabel)
                 .end()
         }
         
-        section.append(destinationField)
-        section.append(conversionField)
+        section2.append(conversionField)
+        section2.append(amountField)
         
-//            .intro("The amount of ETH to be sent will be calculated based on Specify amount in AUD\n\n1 ETH = AUD")
-
-        section.append(amountField)
-        
-        section.append(ButtonRow() { row in
-            row.title = "Review"
+        section2.append(ButtonRow() { row in
+            row.title = "Review Transaction"
             }.onCellSelection { (cell, row) in
                 let values = self.values()
                 if let amount = Float(values["amount"] as! String) {
@@ -81,13 +81,12 @@ class SendFormScreen: GFormScreen {
     }
     
     override func onRefresh() {
+        self.conversionLabel.text("Retrieving ETH price ...")
+
         _ = Rest.get(url: "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=AUD").execute(indicator: .null) { result in
             if let rate = result["AUD"].float {
                 self.conversionRate = 1 / rate
-//                self.conversionField.cellUpdate { cell, _ in
-//                    cell.detailTextLabel?.text = "1 AUD = \(self.conversionRate) ETH"
-//                }
-                
+                self.conversionLabel.text("1 AUD = \(self.conversionRate) ETH")
                 self.conversionField
                     .intro("Specify the amount you want to send in AUD\n1 AUD = \(self.conversionRate) ETH")
                 self.tableView.reloadData()
