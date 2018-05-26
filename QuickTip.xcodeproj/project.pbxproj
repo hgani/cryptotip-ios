@@ -185,7 +185,6 @@
 				C1A059BE20720915007508BE /* Frameworks */,
 				C1A059BF20720915007508BE /* Resources */,
 				0E4D418596AF2FB4455FAD6A /* [CP] Embed Pods Frameworks */,
-				9DD59C4A2C7E33197DBDF73F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -301,21 +300,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuickTip/Pods-QuickTip-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9DD59C4A2C7E33197DBDF73F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuickTip/Pods-QuickTip-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B294CE66E0BB4CB0B51590A9 /* [CP] Check Pods Manifest.lock */ = {
