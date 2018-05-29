@@ -31,7 +31,7 @@ class WalletAddressPanel: GVerticalPanel {
     }
     
     public func reload() {
-        self.address = DbJson.get(Keys.dbTxListAddress).stringValue
+        self.address = DbJson.get(Keys.dbWalletAddress).stringValue
         _ = self.addressLabel.text("\(address.isEmpty ? "[unspecified]" : address)")
     }
 }

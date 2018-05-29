@@ -6,7 +6,7 @@ class SettingsScreen: GFormScreen {
     private let addressField = TextRow("to") { row in
         row.title = "Wallet address"
         row.placeholder = "Enter to view transaction history"
-        row.value = DbJson.get(Keys.dbTxListAddress).string
+        row.value = DbJson.get(Keys.dbWalletAddress).string
     }
     
     override func viewDidLoad() {
@@ -22,7 +22,7 @@ class SettingsScreen: GFormScreen {
                 .icon(from: .FontAwesome, code: "save")
                 .onClick({
                     if let address = self.addressField.value {
-                        DbJson.set(Keys.dbTxListAddress, Json(address))
+                        DbJson.set(Keys.dbWalletAddress, Json(address))
                     }
                     self.nav.pop().refresh()
                 }))
