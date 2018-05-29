@@ -3,6 +3,9 @@ import QRCode
 import web3swift
 
 class ReceiveScreen: GScreen {
+    private lazy var addressPanel = WalletAddressPanel(nav: nav)
+    private let qrView = GImageView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -12,16 +15,23 @@ class ReceiveScreen: GScreen {
 
         self
             .leftMenu(controller: MyMenuNavController())
-            .paddings(t: 20, l: 20, b: 20, r: 20)
+            .paddings(t: 10, l: 10, b: 10, r: 10)
             .end()
         
-        let qrCode = QRCode("TEST")
+        container.addView(addressPanel)
         container.addView(GAligner()
             .width(.matchParent)
-            .withView(GImageView().source(image: qrCode?.image)), top: 50)
+            .withView(qrView), top: 50)
 
 //        let web3 = Web3.InfuraRinkebyWeb3()
 //        let blockNumber = web3.eth.getBlockNumber()
 //        GLog.t("Number = \(blockNumber)")
+        
+        onRefresh()
+    }
+    
+    override func onRefresh() {
+        addressPanel.reload()
+        _ = qrView.source(image: QRCode(addressPanel.address)?.image)
     }
 }

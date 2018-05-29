@@ -29,10 +29,27 @@ PODS:
     - SwiftyJSON
     - TTTAttributedLabel
     - XLPagerTabStrip (~> 8.0)
+  - GaniLib/Realm (0.6.0):
+    - Alamofire
+    - Eureka (~> 4.1)
+    - Kingfisher (~> 4.0)
+    - RealmSwift (~> 3.0)
+    - SideMenu (~> 3.0)
+    - SnapKit (~> 4.0)
+    - SVProgressHUD
+    - SwiftIconFont (= 2.7.3)
+    - SwiftyJSON
+    - TTTAttributedLabel
+    - XLPagerTabStrip (~> 8.0)
   - Kingfisher (4.6.1)
   - libsodium (1.0.12)
   - QRCode (2.0)
   - QRCodeReader.swift (8.0.4)
+  - Realm (3.5.0):
+    - Realm/Headers (= 3.5.0)
+  - Realm/Headers (3.5.0)
+  - RealmSwift (3.5.0):
+    - Realm (= 3.5.0)
   - Result (3.0.0)
   - secp256k1_ios (0.1.2)
   - SideMenu (3.1.5)
@@ -54,6 +71,7 @@ PODS:
 
 DEPENDENCIES:
   - GaniLib (from `../ganilib-ios`)
+  - GaniLib/Realm (from `../ganilib-ios`)
   - QRCode (~> 2.0)
   - QRCodeReader.swift (~> 8.0)
   - web3swift (from `https://github.com/bankex/web3swift.git`)
@@ -69,6 +87,8 @@ SPEC REPOS:
     - libsodium
     - QRCode
     - QRCodeReader.swift
+    - Realm
+    - RealmSwift
     - Result
     - secp256k1_ios
     - SideMenu
@@ -102,6 +122,8 @@ SPEC CHECKSUMS:
   libsodium: 9a8faa5ef2fa0d2d57bd7f7d79bf8fb7c1a9f0ea
   QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
   QRCodeReader.swift: 9730cfa7ed5f0dd839765df8cf18d41db20e4081
+  Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
+  RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
   Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
   secp256k1_ios: 168c6c49ed9771db51875f5255c8f9847e4cf554
   SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
@@ -114,6 +136,6 @@ SPEC CHECKSUMS:
   web3swift: 1f5e5bd7fff73409c3161d1db8607e791c8c3b7b
   XLPagerTabStrip: c908b17cbf42fcd2598ee1adfc49bae25444d88a
 
-PODFILE CHECKSUM: 6ba610f1bf6495636bad5da9cff85a30262d0784
+PODFILE CHECKSUM: bc5904e8dd7f73d110e1d7a7a3d9831800ced2b4
 
 COCOAPODS: 1.5.2

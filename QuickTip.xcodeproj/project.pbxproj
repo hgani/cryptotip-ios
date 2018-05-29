@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		AD32979E99E18070F313DF5D /* Pods_QuickTip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C50AD74F04248C933509527 /* Pods_QuickTip.framework */; };
+		C107DA3B20BCF1D800398585 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C107DA3A20BCF1D700398585 /* SettingsScreen.swift */; };
+		C107DA3D20BD056700398585 /* WalletAddressPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C107DA3C20BD056700398585 /* WalletAddressPanel.swift */; };
+		C1120F9120B953E8008DFCAA /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1120F9020B953E8008DFCAA /* Keys.swift */; };
 		C127F3F62096AC44005D770F /* SendFormScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C127F3F52096AC44005D770F /* SendFormScreen.swift */; };
 		C1A059C520720915007508BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A059C420720915007508BE /* AppDelegate.swift */; };
 		C1A059CA20720915007508BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1A059C820720915007508BE /* Main.storyboard */; };
@@ -33,6 +36,9 @@
 /* Begin PBXFileReference section */
 		5C50AD74F04248C933509527 /* Pods_QuickTip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickTip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66541C5C9A0894A28892E929 /* Pods-QuickTip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTip.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTip/Pods-QuickTip.release.xcconfig"; sourceTree = "<group>"; };
+		C107DA3A20BCF1D700398585 /* SettingsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		C107DA3C20BD056700398585 /* WalletAddressPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletAddressPanel.swift; sourceTree = "<group>"; };
+		C1120F9020B953E8008DFCAA /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		C127F3F52096AC44005D770F /* SendFormScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendFormScreen.swift; sourceTree = "<group>"; };
 		C1A059C120720915007508BE /* QuickTip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickTip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1A059C420720915007508BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +93,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C107DA3920BCF1D700398585 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C107DA3A20BCF1D700398585 /* SettingsScreen.swift */,
+				C107DA3C20BD056700398585 /* WalletAddressPanel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		C1A059B820720915007508BE = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +123,7 @@
 		C1A059C320720915007508BE /* QuickTip */ = {
 			isa = PBXGroup;
 			children = (
+				C107DA3920BCF1D700398585 /* Settings */,
 				C1A059F0207214CA007508BE /* Transaction */,
 				C1A059ED20720ECA007508BE /* Send */,
 				C1A059EA20720E55007508BE /* Receive */,
@@ -129,6 +145,7 @@
 				C1A059DE20720D8A007508BE /* MyHttpDelegate.swift */,
 				C1A059DF20720D8A007508BE /* MyMenuNavController.swift */,
 				C1A059E020720D8A007508BE /* UIColor+My.swift */,
+				C1120F9020B953E8008DFCAA /* Keys.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -207,7 +224,7 @@
 				TargetAttributes = {
 					C1A059C020720915007508BE = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -260,6 +277,8 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCode/QRCode.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
@@ -284,6 +303,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
@@ -328,12 +349,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1A059E720720D8A007508BE /* MyHttpDelegate.swift in Sources */,
+				C107DA3B20BCF1D800398585 /* SettingsScreen.swift in Sources */,
+				C107DA3D20BD056700398585 /* WalletAddressPanel.swift in Sources */,
 				C1A059F7207214CB007508BE /* TransactionDetailScreen.swift in Sources */,
 				C1A059F8207214CB007508BE /* TransactionListScreen.swift in Sources */,
 				C1A059E420720D8A007508BE /* DevelopmentBuild.swift in Sources */,
 				C1A059EC20720E55007508BE /* ReceiveScreen.swift in Sources */,
 				C1A059C520720915007508BE /* AppDelegate.swift in Sources */,
 				C1A059F5207214CB007508BE /* Transaction.swift in Sources */,
+				C1120F9120B953E8008DFCAA /* Keys.swift in Sources */,
 				C1A059E520720D8A007508BE /* ProductionBuild.swift in Sources */,
 				C1A059E120720D8A007508BE /* Build.swift in Sources */,
 				C1A059F6207214CB007508BE /* TransactionCell.swift in Sources */,
@@ -480,12 +504,14 @@
 			baseConfigurationReference = F6A2607316CC2D76F283D744 /* Pods-QuickTip.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Y7H5UC8BZ9;
 				INFOPLIST_FILE = QuickTip/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.quicktip.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = app.cryptotip.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b70cfa5b-905f-431c-923a-89c4f50161a0";
+				PROVISIONING_PROFILE_SPECIFIER = "CryptoTip Dev";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -496,12 +522,15 @@
 			baseConfigurationReference = 66541C5C9A0894A28892E929 /* Pods-QuickTip.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Y7H5UC8BZ9;
 				INFOPLIST_FILE = QuickTip/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.quicktip.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = app.cryptotip.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ba5e628b-b3a4-44da-b2ee-ffebab446f8f";
+				PROVISIONING_PROFILE_SPECIFIER = "QuickTip Dist";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

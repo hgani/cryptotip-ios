@@ -6,7 +6,7 @@ target 'QuickTip' do
   use_frameworks!
 
   pod 'GaniLib', path: '../ganilib-ios'
-  #pod 'GaniLib/Realm', path: '../ganilib-ios'
+  pod 'GaniLib/Realm', path: '../ganilib-ios'
   
   pod 'QRCodeReader.swift', '~> 8.0'
   pod 'QRCode', '~> 2.0'

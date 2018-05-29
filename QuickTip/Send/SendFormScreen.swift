@@ -56,7 +56,7 @@ class SendFormScreen: GFormScreen {
         section2.append(amountField)
         
         section2.append(ButtonRow() { row in
-            row.title = "Review Transaction"
+            row.title = "Review and Send"
             }.onCellSelection { (cell, row) in
                 let values = self.values()
                 if let amountText = values["amount"] as? String, let amount = Float(amountText), let recipient = self.destinationField.value {

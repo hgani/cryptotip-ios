@@ -20,7 +20,7 @@ class SendScreen: GScreen {
             .width(.matchParent)
             .align(.center)
             .spec(.h1)
-            .text("Scan to send"), top: 50)
+            .text("Scan to send coin"), top: 50)
         
         container.addView(GLabel()
             .width(.matchParent)

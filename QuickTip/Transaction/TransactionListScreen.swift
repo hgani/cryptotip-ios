@@ -3,11 +3,7 @@ import GaniLib
 class TransactionListScreen: GScreen {
     fileprivate let tableView = GTableView()
     fileprivate var transactions = [Transaction]()
-//    lazy fileprivate var refresher: GRefreshControl = {
-//        return GRefreshControl().onValueChanged {
-//            self.onRefresh()
-//        }
-//    }()
+    fileprivate lazy var addressPanel = WalletAddressPanel(nav: nav)
     
     open override func screenContent() -> UIView {
         return self.tableView
@@ -22,8 +18,13 @@ class TransactionListScreen: GScreen {
             .color(bg: .navbarBg, text: .navbarText)
 
         self
-            .leftMenu(controller: MyMenuNavController())
             .paddings(t: 0, l: 0, b: 0, r: 0)
+            .leftMenu(controller: MyMenuNavController())
+//            .rightBarButton(item: GBarButtonItem()
+//                .icon(from: .FontAwesome, code: "gear")
+//                .onClick({
+//                    self.nav.push(SettingsScreen())
+//                }))
             .end()
 
         tableView
@@ -35,31 +36,39 @@ class TransactionListScreen: GScreen {
 
         tableView.addSubview(refresher)
         
+//        DbJson.set(Keys.dbTxListAddress, "")
+        
         onRefresh()
     }
     
     override func onRefresh() {
+        self.addressPanel.reload()
         self.transactions.removeAll()
+        self.tableView.reloadData()
         
-        let params = [
-            "apikey": "8XY5G7CC8CYMAJ267UBE58QNWDG1H49JHT",
-            "module": "account",
-            "action": "txlist",
-            "address": "0xab86ca6c0e64092c4f444af47a2bebba67f6cd7b",
-//            "startblock": "0",
-//            "endblock": "99999999",
-            "sort": "desc",
-            "page": "1",
-            "offset": "50"
-        ]
-        
-        _ = Rest.get(url: "\(Build.instance.etherscanHost())/api", params: params).execute(indicator: refresher) { json in
-            for transactionJson in json["result"].arrayValue {
-                self.transactions.append(Transaction(json: transactionJson))
+        // "0xab86ca6c0e64092c4f444af47a2bebba67f6cd7b"
+        let address = addressPanel.address
+        if !address.isEmpty {
+            let params = [
+                "apikey": "8XY5G7CC8CYMAJ267UBE58QNWDG1H49JHT",
+                "module": "account",
+                "action": "txlist",
+                "address": address,
+                //            "startblock": "0",
+                //            "endblock": "99999999",
+                "sort": "desc",
+                "page": "1",
+                "offset": "50"
+            ]
+            
+            _ = Rest.get(url: "\(Build.instance.etherscanHost())/api", params: params).execute(indicator: refresher) { json in
+                for transactionJson in json["result"].arrayValue {
+                    self.transactions.append(Transaction(json: transactionJson))
+                }
+                
+                self.tableView.reloadData()
+                return true
             }
-
-            self.tableView.reloadData()
-            return true
         }
     }
 }
@@ -89,5 +98,9 @@ extension TransactionListScreen: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         nav.push(TransactionDetailScreen(transaction: transaction(at: indexPath)))
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return GHeaderFooterView().append(addressPanel)
     }
 }
