@@ -9,6 +9,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         GHttp.instance.initialize(buildConfig: Build.instance, delegate: MyHttpDelegate())
         let app = GApp.instance.withNav(GNavigationController(rootViewController: SendScreen()))
+//        let app = GApp.instance.withNav(GNavigationController(rootViewController: SendFormScreen(to: "RECIPIENT")))
+//        let app = GApp.instance.withNav(GNavigationController(rootViewController: TransactionListScreen()))
+
         self.window = app.window
         
         // Override point for customization after application launch.
