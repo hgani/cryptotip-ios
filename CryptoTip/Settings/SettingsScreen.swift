@@ -1,5 +1,6 @@
 import GaniLib
 import Eureka
+import web3swift
 
 class SettingsScreen: GFormScreen {
     private var section = Section()
@@ -21,10 +22,13 @@ class SettingsScreen: GFormScreen {
             .rightBarButton(item: GBarButtonItem()
                 .icon(from: .FontAwesome, code: "save")
                 .onClick({
-                    if let address = self.addressField.value {
-                        DbJson.set(Keys.dbWalletAddress, Json(address))
+                    if let value = self.addressField.value, let address = EthereumAddress(value), address.isValid {
+                        DbJson.set(Keys.dbWalletAddress, Json(value))
+                        self.nav.pop().refresh()
                     }
-                    self.nav.pop().refresh()
+                    else {
+                        self.launch.alert("Invalid ETH address")
+                    }
                 }))
             .end()
         
