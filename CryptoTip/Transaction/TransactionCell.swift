@@ -10,7 +10,7 @@ class TransactionCell: GTableViewCustomCell {
         self
             .append(txHash)
             .append(price)
-            .end()
+            .done()
     }
     
     required init?(coder aDecoder: NSCoder) {

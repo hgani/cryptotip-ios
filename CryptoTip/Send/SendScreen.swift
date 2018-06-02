@@ -15,7 +15,7 @@ class SendScreen: GScreen {
         self
             .leftMenu(controller: MyMenuNavController())
             .paddings(t: 20, l: 20, b: 20, r: 20)
-            .end()
+            .done()
         
         container.addView(GLabel()
             .width(.matchParent)

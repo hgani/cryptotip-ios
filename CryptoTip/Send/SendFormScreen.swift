@@ -104,17 +104,17 @@ class SendFormScreen: GFormScreen {
         }
     }
     
-    private func setupHeaderFooter(height: Int? = nil, populate: @escaping (GHeaderFooterView) -> Void) -> HeaderFooterView<GHeaderFooterView> {
-        var headerFooter = HeaderFooterView<GHeaderFooterView>(.class)
-        headerFooter.height = {
-            if let h = height {
-                return CGFloat(h)
-            }
-            return UITableViewAutomaticDimension
-        }
-        headerFooter.onSetupView = { view, section in
-            populate(view.clear())
-        }
-        return headerFooter
-    }
+//    private func setupHeaderFooter(height: Int? = nil, populate: @escaping (GHeaderFooterView) -> Void) -> HeaderFooterView<GHeaderFooterView> {
+//        var headerFooter = HeaderFooterView<GHeaderFooterView>(.class)
+//        headerFooter.height = {
+//            if let h = height {
+//                return CGFloat(h)
+//            }
+//            return UITableViewAutomaticDimension
+//        }
+//        headerFooter.onSetupView = { view, section in
+//            populate(view.clear())
+//        }
+//        return headerFooter
+//    }
 }

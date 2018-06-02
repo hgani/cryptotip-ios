@@ -16,7 +16,7 @@ class ReceiveScreen: GScreen {
         self
             .leftMenu(controller: MyMenuNavController())
             .paddings(t: 10, l: 10, b: 10, r: 10)
-            .end()
+            .done()
         
         container.addView(addressPanel)
         container.addView(GAligner()

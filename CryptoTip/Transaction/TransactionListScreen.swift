@@ -25,7 +25,7 @@ class TransactionListScreen: GScreen {
 //                .onClick({
 //                    self.nav.push(SettingsScreen())
 //                }))
-            .end()
+            .done()
 
         tableView
             .autoRowHeight(estimate: 300)

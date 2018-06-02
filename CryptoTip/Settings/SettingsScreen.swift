@@ -22,6 +22,7 @@ class SettingsScreen: GFormScreen {
             .rightBarButton(item: GBarButtonItem()
                 .icon(from: .FontAwesome, code: "save")
                 .onClick({
+                    // if let value = self.addressField.value {
                     if let value = self.addressField.value, let address = EthereumAddress(value), address.isValid {
                         DbJson.set(Keys.dbWalletAddress, Json(value))
                         self.nav.pop().refresh()
@@ -30,7 +31,7 @@ class SettingsScreen: GFormScreen {
                         self.launch.alert("Invalid ETH address")
                     }
                 }))
-            .end()
+            .done()
         
         form += [section]
         
