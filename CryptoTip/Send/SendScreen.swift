@@ -1,6 +1,7 @@
 import GaniLib
 import QRCodeReader
 import AVFoundation
+import web3swift
 
 class SendScreen: GScreen {
     override func viewDidLoad() {
@@ -49,16 +50,13 @@ class SendScreen: GScreen {
     }
     
     
-    func submit(code: String) {
-//        _ = Rest.post(path: "/", params: params).execute { result in
-//            if result["success"].boolValue {
-//                self.dismiss(animated: true, completion: nil)
-//                self.indicator.show(success: result["message"].stringValue)
-//                return true
-//            }
-//            return false
-//        }
-        self.nav.push(SendFormScreen(to: code))
+    func process(value: String) {
+        if let address = EthereumAddress(value), address.isValid {
+            self.nav.push(SendFormScreen(to: value))
+        }
+        else {  // TODO: support ERC681
+            self.launch.alert("Invalid ETH address")
+        }
     }
 }
 
@@ -68,7 +66,7 @@ extension SendScreen: QRCodeReaderViewControllerDelegate {
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         reader.stopScanning()
         
-        submit(code: result.value)
+        process(value: result.value)
     }
 
     func reader(_ reader: QRCodeReaderViewController, didSwitchCamera newCaptureDevice: AVCaptureDeviceInput) {
