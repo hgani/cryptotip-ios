@@ -32,7 +32,7 @@ class TransactionListScreen: GScreen {
             .delegate(self)
             .source(self)
             .reload()
-            .end()
+            .done()
 
         tableView.addSubview(refresher)
         
