@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1937A7C9CB89030FE2FCEF81 /* Pods_CryptoTip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A86F839E9EC75017586033 /* Pods_CryptoTip.framework */; };
+		C137F16E20DE3F5A001A9900 /* WalletScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137F16D20DE3F5A001A9900 /* WalletScreen.swift */; };
+		C137F17020DE44B2001A9900 /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137F16F20DE44B2001A9900 /* CryptoEthereumSwift.framework */; };
+		C137F17220DE44B6001A9900 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137F17120DE44B6001A9900 /* CryptoSwift.framework */; };
+		C137F17420DE44BB001A9900 /* EthereumKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137F17320DE44BB001A9900 /* EthereumKit.framework */; };
 		C1D829D520BF841A0042B413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D829D420BF841A0042B413 /* AppDelegate.swift */; };
 		C1D829D720BF841A0042B413 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D829D620BF841A0042B413 /* ViewController.swift */; };
 		C1D829DA20BF841A0042B413 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1D829D820BF841A0042B413 /* Main.storyboard */; };
@@ -37,6 +41,10 @@
 /* Begin PBXFileReference section */
 		19E19B858DA04937FCED699C /* Pods-CryptoTip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoTip/Pods-CryptoTip.debug.xcconfig"; sourceTree = "<group>"; };
 		47A274DFB43F59B55825C509 /* Pods-CryptoTip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTip.release.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoTip/Pods-CryptoTip.release.xcconfig"; sourceTree = "<group>"; };
+		C137F16D20DE3F5A001A9900 /* WalletScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletScreen.swift; sourceTree = "<group>"; };
+		C137F16F20DE44B2001A9900 /* CryptoEthereumSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoEthereumSwift.framework; path = Carthage/Build/iOS/CryptoEthereumSwift.framework; sourceTree = "<group>"; };
+		C137F17120DE44B6001A9900 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
+		C137F17320DE44BB001A9900 /* EthereumKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EthereumKit.framework; path = Carthage/Build/iOS/EthereumKit.framework; sourceTree = "<group>"; };
 		C1D829D120BF841A0042B413 /* CryptoTip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D829D420BF841A0042B413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1D829D620BF841A0042B413 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +80,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1937A7C9CB89030FE2FCEF81 /* Pods_CryptoTip.framework in Frameworks */,
+				C137F17020DE44B2001A9900 /* CryptoEthereumSwift.framework in Frameworks */,
+				C137F17220DE44B6001A9900 /* CryptoSwift.framework in Frameworks */,
+				C137F17420DE44BB001A9900 /* EthereumKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,9 +92,20 @@
 		4709D69EB3A351087950FFA3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C137F17320DE44BB001A9900 /* EthereumKit.framework */,
+				C137F17120DE44B6001A9900 /* CryptoSwift.framework */,
+				C137F16F20DE44B2001A9900 /* CryptoEthereumSwift.framework */,
 				D5A86F839E9EC75017586033 /* Pods_CryptoTip.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C137F16C20DE3F5A001A9900 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				C137F16D20DE3F5A001A9900 /* WalletScreen.swift */,
+			);
+			path = Wallet;
 			sourceTree = "<group>";
 		};
 		C1D829C820BF841A0042B413 = {
@@ -107,6 +129,7 @@
 		C1D829D320BF841A0042B413 /* CryptoTip */ = {
 			isa = PBXGroup;
 			children = (
+				C137F16C20DE3F5A001A9900 /* Wallet */,
 				C1D82A0720BF88420042B413 /* Receive */,
 				C1D82A0420BF88420042B413 /* Send */,
 				C1D829FC20BF88420042B413 /* Settings */,
@@ -205,6 +228,7 @@
 				C1D829CE20BF841A0042B413 /* Frameworks */,
 				C1D829CF20BF841A0042B413 /* Resources */,
 				39BBAA93E581B52BC3836B5E /* [CP] Embed Pods Frameworks */,
+				C137F17520DE44FB001A9900 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -325,6 +349,26 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CryptoTip/Pods-CryptoTip-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C137F17520DE44FB001A9900 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/CryptoEthereumSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/EthereumKit.framework",
+			);
+			name = "Run Script";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CryptoEthereumSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CryptoSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/EthereumKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		CE895DD169FA1B73F92AEDA3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -356,6 +400,7 @@
 				C1D829F320BF85840042B413 /* MyMenuNavController.swift in Sources */,
 				C1D829FA20BF85840042B413 /* ProductionBuild.swift in Sources */,
 				C1D829D720BF841A0042B413 /* ViewController.swift in Sources */,
+				C137F16E20DE3F5A001A9900 /* WalletScreen.swift in Sources */,
 				C1D82A0A20BF88420042B413 /* WalletAddressPanel.swift in Sources */,
 				C1D829F220BF85840042B413 /* Keys.swift in Sources */,
 				C1D82A0E20BF88420042B413 /* Transaction.swift in Sources */,
@@ -516,6 +561,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Y7H5UC8BZ9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CryptoTip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -538,6 +587,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CryptoTip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

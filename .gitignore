@@ -6,3 +6,4 @@ Build.swift
 dist/
 xcuserdata/
 
+/Carthage/
