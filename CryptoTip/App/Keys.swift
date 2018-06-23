@@ -1,3 +1,4 @@
 enum Keys {
-    static let dbWalletAddress = "walletAddress"
+    static let dbPublicKey = "publicKey"
+    static let dbPrivateKey = "privateKey"
 }

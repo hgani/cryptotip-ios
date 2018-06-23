@@ -12,6 +12,7 @@
 		C137F17020DE44B2001A9900 /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137F16F20DE44B2001A9900 /* CryptoEthereumSwift.framework */; };
 		C137F17220DE44B6001A9900 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137F17120DE44B6001A9900 /* CryptoSwift.framework */; };
 		C137F17420DE44BB001A9900 /* EthereumKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137F17320DE44BB001A9900 /* EthereumKit.framework */; };
+		C137F17720DE6FBF001A9900 /* GButtonSpec+My.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137F17620DE6FBF001A9900 /* GButtonSpec+My.swift */; };
 		C1D829D520BF841A0042B413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D829D420BF841A0042B413 /* AppDelegate.swift */; };
 		C1D829D720BF841A0042B413 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D829D620BF841A0042B413 /* ViewController.swift */; };
 		C1D829DA20BF841A0042B413 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1D829D820BF841A0042B413 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		C137F16F20DE44B2001A9900 /* CryptoEthereumSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoEthereumSwift.framework; path = Carthage/Build/iOS/CryptoEthereumSwift.framework; sourceTree = "<group>"; };
 		C137F17120DE44B6001A9900 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		C137F17320DE44BB001A9900 /* EthereumKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EthereumKit.framework; path = Carthage/Build/iOS/EthereumKit.framework; sourceTree = "<group>"; };
+		C137F17620DE6FBF001A9900 /* GButtonSpec+My.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GButtonSpec+My.swift"; sourceTree = "<group>"; };
 		C1D829D120BF841A0042B413 /* CryptoTip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D829D420BF841A0042B413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1D829D620BF841A0042B413 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				C1D829E920BF85840042B413 /* UIColor+My.swift */,
 				C1D829EA20BF85840042B413 /* MyHttpDelegate.swift */,
 				C1D829EB20BF85840042B413 /* GLabelSpec+My.swift */,
+				C137F17620DE6FBF001A9900 /* GButtonSpec+My.swift */,
 				C1D829EC20BF85840042B413 /* Build */,
 			);
 			path = App;
@@ -400,6 +403,7 @@
 				C1D829F320BF85840042B413 /* MyMenuNavController.swift in Sources */,
 				C1D829FA20BF85840042B413 /* ProductionBuild.swift in Sources */,
 				C1D829D720BF841A0042B413 /* ViewController.swift in Sources */,
+				C137F17720DE6FBF001A9900 /* GButtonSpec+My.swift in Sources */,
 				C137F16E20DE3F5A001A9900 /* WalletScreen.swift in Sources */,
 				C1D82A0A20BF88420042B413 /* WalletAddressPanel.swift in Sources */,
 				C1D829F220BF85840042B413 /* Keys.swift in Sources */,
