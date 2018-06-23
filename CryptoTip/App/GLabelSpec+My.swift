@@ -16,5 +16,8 @@ extension GLabelSpec {
     static let a = GLabelSpec() { label in
         _ = label.font(nil, size: 14).color(.init(hex: "#334e9c"))
     }
+    static let small = GLabelSpec() { label in
+        _ = label.font(nil, size: 12)
+    }
 }
 

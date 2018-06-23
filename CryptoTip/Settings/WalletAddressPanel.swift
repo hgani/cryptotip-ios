@@ -3,7 +3,7 @@ import GaniLib
 class WalletAddressPanel: GVerticalPanel {
     public private(set) var address = ""
     private let nav: NavHelper
-    private let addressLabel = GLabel().spec(.p)
+    private let addressLabel = GLabel().spec(.small)
     
     init(nav: NavHelper) {
         self.nav = nav
