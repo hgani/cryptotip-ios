@@ -24,7 +24,7 @@ class SettingsScreen: GFormScreen {
                 .onClick({
                     // if let value = self.addressField.value {
                     if let value = self.addressField.value, let address = EthereumAddress(value), address.isValid {
-                        DbJson.set(Keys.dbWalletAddress, Json(value))
+                        DbJson.put(Keys.dbWalletAddress, Json(value))
                         self.nav.pop().refresh()
                     }
                     else {
