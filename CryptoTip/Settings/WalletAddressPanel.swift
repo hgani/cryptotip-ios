@@ -10,7 +10,7 @@ class WalletAddressPanel: GVerticalPanel {
         super.init()
         
         let addressView = GVerticalPanel()
-            .append(GLabel().text("You wallet address:"))
+            .append(GLabel().text("Your wallet address:"))
             .append(addressLabel)
         let content = GSplitPanel()
             .paddings(t: 10, l: 10, b: 10, r: 10)
