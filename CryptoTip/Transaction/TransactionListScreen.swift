@@ -41,6 +41,14 @@ class TransactionListScreen: GScreen {
         onRefresh()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if DbJson.get(Keys.dbPublicKey).stringValue != addressPanel.address {
+            onRefresh()
+        }
+    }
+    
     override func onRefresh() {
         self.addressPanel.reload()
         self.transactions.removeAll()

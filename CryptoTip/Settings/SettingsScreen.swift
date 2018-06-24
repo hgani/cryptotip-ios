@@ -4,11 +4,6 @@ import web3swift
 
 class SettingsScreen: GFormScreen {
     private var section = Section()
-    private let addressField = TextRow("to") { row in
-        row.title = "Wallet address"
-        row.placeholder = "Enter to view transaction history"
-        row.value = DbJson.get(Keys.dbPublicKey).string
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,23 +13,24 @@ class SettingsScreen: GFormScreen {
         nav
             .color(bg: .navbarBg, text: .navbarText)
         
-        self
-            .rightBarButton(item: GBarButtonItem()
-                .icon(from: .FontAwesome, code: "save")
-                .onClick({
-                    // if let value = self.addressField.value {
-                    if let value = self.addressField.value, let address = EthereumAddress(value), address.isValid {
-                        DbJson.put(Keys.dbPublicKey, Json(value))
-                        self.nav.pop().refresh()
-                    }
-                    else {
-                        self.launch.alert("Invalid ETH address")
-                    }
-                }))
-            .done()
-        
         form += [section]
         
-        section.append(addressField)
+        section.append(LabelRow() { row in
+            row.title = "Enter existing wallet address"
+            row.cellStyle = .value1
+            }.cellUpdate { (cell, row) in
+                cell.accessoryType = .disclosureIndicator
+            }.onCellSelection { (cell, row) in
+                self.nav.push(WalletEditScreen())
+        })
+        
+        section.append(LabelRow() { row in
+            row.title = "Create new wallet"
+            row.cellStyle = .value1
+        }.cellUpdate { (cell, row) in
+            cell.accessoryType = .disclosureIndicator
+        }.onCellSelection { (cell, row) in
+            self.nav.push(WalletScreen())
+        })
     }
 }

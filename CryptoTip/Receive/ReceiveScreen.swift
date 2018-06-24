@@ -30,8 +30,10 @@ class ReceiveScreen: GScreen {
         onRefresh()
     }
     
-    override func onRefresh() {
-        addressPanel.reload()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.addressPanel.reload()
         _ = qrView.source(image: QRCode(addressPanel.address)?.image)
     }
 }

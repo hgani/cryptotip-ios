@@ -27,7 +27,7 @@ class WalletScreen: GScreen {
             .color(bg: .navbarBg, text: .navbarText)
 
         self
-            .leftMenu(controller: MyMenuNavController())
+//            .leftMenu(controller: MyMenuNavController())
             .paddings(t: 10, l: 10, b: 10, r: 10)
             .done()
 
