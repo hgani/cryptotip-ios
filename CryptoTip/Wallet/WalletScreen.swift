@@ -17,7 +17,8 @@ class WalletScreen: GScreen {
             return geth
     }()
     
-    var wallet: Wallet! = nil
+    private let phraseLabel = GLabel().spec(.p)
+    private let confirmButton = GButton().title("Confirm").spec(.standard).hidden(true)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,29 +28,37 @@ class WalletScreen: GScreen {
             .color(bg: .navbarBg, text: .navbarText)
 
         self
-//            .leftMenu(controller: MyMenuNavController())
-            .paddings(t: 10, l: 10, b: 10, r: 10)
+            .paddings(t: 10, l: 20, b: 10, r: 20)
             .done()
 
         container.addView(GAligner().width(.matchParent).withView(GButton()
             .spec(.primary)
             .title("Create wallet")
             .onClick { _ in
-                self.createWallet()
+                self.createMnemonic()
             }), top: 50
         )
+        
+        container.addView(phraseLabel, top: 30)
+        container.addView(GAligner().width(.matchParent).withView(confirmButton), top: 10)
     }
     
-    func createWallet() {
+    func createMnemonic() {
         let mnemonic = Mnemonic.create(strength: .hight, language: .english)
+        
+        phraseLabel.text(mnemonic.joined(separator: " ")).done()
+        confirmButton.hidden(false).onClick { _ in
+            self.createWallet(mnemonic: mnemonic)
+            self.indicator.show(success: "Done!")
+            self.nav.pop().done()
+        }.done()
+    }
+    
+    func createWallet(mnemonic: [String]) {
         let seed = try! Mnemonic.createSeed(mnemonic: mnemonic)
-        wallet = try! Wallet(seed: seed, network: network, debugPrints: true)
-
+        let wallet = try! Wallet(seed: seed, network: network, debugPrints: true)
+        
         DbJson.put(Keys.dbPrivateKey, Json(wallet.dumpPrivateKey()))
         DbJson.put(Keys.dbPublicKey, Json(wallet.generateAddress()))
-        
-        container.addView(GLabel()
-            .text(mnemonic.joined(separator: " "))
-        )
     }
 }
