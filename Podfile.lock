@@ -6,10 +6,10 @@ PODS:
     - SipHash (~> 1.2)
   - CryptoSwift (0.9.0)
   - Eureka (4.1.1)
-  - GaniLib (0.6.0):
+  - GaniLib (0.7.1):
     - Alamofire
     - Eureka (~> 4.1)
-    - GaniLib/Core (= 0.6.0)
+    - GaniLib/Core (= 0.7.1)
     - Kingfisher (~> 4.0)
     - SideMenu (~> 3.0)
     - SnapKit (~> 4.0)
@@ -18,7 +18,7 @@ PODS:
     - SwiftyJSON
     - TTTAttributedLabel
     - XLPagerTabStrip (~> 8.0)
-  - GaniLib/Core (0.6.0):
+  - GaniLib/Core (0.7.1):
     - Alamofire
     - Eureka (~> 4.1)
     - Kingfisher (~> 4.0)
@@ -29,7 +29,7 @@ PODS:
     - SwiftyJSON
     - TTTAttributedLabel
     - XLPagerTabStrip (~> 8.0)
-  - GaniLib/Realm (0.6.0):
+  - GaniLib/Realm (0.7.1):
     - Alamofire
     - Eureka (~> 4.1)
     - Kingfisher (~> 4.0)
@@ -117,7 +117,7 @@ SPEC CHECKSUMS:
   BigInt: 8e8a52161c745cd3ab78e3dc346a9fbee51e6cf6
   CryptoSwift: bca8c5b653dcc2d9734409242a070ff53bafac86
   Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
-  GaniLib: 45695a7bc2b7e643df4acd858f499ed330040780
+  GaniLib: 8917e360de90b872338568da15a3bf32ba6869bb
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   libsodium: 9a8faa5ef2fa0d2d57bd7f7d79bf8fb7c1a9f0ea
   QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
