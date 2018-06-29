@@ -2,6 +2,7 @@ import GaniLib
 import CryptoSwift
 import CryptoEthereumSwift
 import EthereumKit
+import RNCryptor
 
 class WalletScreen: GScreen {
     let network: Network = Network.private(chainID: 4, testUse: true)
@@ -58,7 +59,11 @@ class WalletScreen: GScreen {
         let seed = try! Mnemonic.createSeed(mnemonic: mnemonic)
         let wallet = try! Wallet(seed: seed, network: network, debugPrints: true)
         
-        DbJson.put(Keys.dbPrivateKey, Json(wallet.dumpPrivateKey()))
+        let data = wallet.dumpPrivateKey().data(using: .utf8)
+        let encryptedPrivateKey = RNCryptor.encrypt(data: data!, withPassword: "TODO")
+        DbJson.put(Keys.dbPrivateKey, Json(encryptedPrivateKey))
+        
+//        DbJson.put(Keys.dbPrivateKey, Json(wallet.dumpPrivateKey()))
         DbJson.put(Keys.dbPublicKey, Json(wallet.generateAddress()))
     }
 }
