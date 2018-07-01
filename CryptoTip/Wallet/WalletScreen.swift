@@ -18,8 +18,10 @@ class WalletScreen: GScreen {
             return geth
     }()
     
+    private let passwordField = GTextField().width(.matchParent).spec(.standard).placeholder("Password")
+    private let confirmPasswordField = GTextField().width(.matchParent).spec(.standard).placeholder("Confirm password")
     private let phraseLabel = GLabel().spec(.p)
-    private let confirmButton = GButton().title("Confirm").spec(.standard).hidden(true)
+    private let confirmCreateButton = GButton().title("Confirm").spec(.standard).hidden(true)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,36 +33,52 @@ class WalletScreen: GScreen {
         self
             .paddings(t: 10, l: 20, b: 10, r: 20)
             .done()
+        
+        container.addView(passwordField, top: 50)
+        container.addView(confirmPasswordField, top: 10)
+        
+        passwordField.isSecureTextEntry = true;
+        confirmPasswordField.isSecureTextEntry = true;
 
         container.addView(GAligner().width(.matchParent).withView(GButton()
             .spec(.primary)
             .title("Create wallet")
             .onClick { _ in
                 self.createMnemonic()
-            }), top: 50
+            }), top: 10
         )
         
         container.addView(phraseLabel, top: 30)
-        container.addView(GAligner().width(.matchParent).withView(confirmButton), top: 10)
+        container.addView(GAligner().width(.matchParent).withView(confirmCreateButton), top: 10)
     }
     
     func createMnemonic() {
-        let mnemonic = Mnemonic.create(strength: .hight, language: .english)
+        guard let password = passwordField.text, password.count >= 8 else {
+            self.launch.alert("Specify a password (min 8 characters). This will be used to secure your private key.")
+            return
+        }
         
+        guard password == confirmPasswordField.text else {
+            self.launch.alert("Password confirmation does not match")
+            return
+        }
+        
+        let mnemonic = Mnemonic.create(strength: .hight, language: .english)
         phraseLabel.text(mnemonic.joined(separator: " ")).done()
-        confirmButton.hidden(false).onClick { _ in
-            self.createWallet(mnemonic: mnemonic)
+        confirmCreateButton.hidden(false).onClick { _ in
+            self.createWallet(mnemonic: mnemonic, password: password)
             self.indicator.show(success: "Done!")
             self.nav.pop().done()
-        }.done()
+            }.done()
     }
     
-    func createWallet(mnemonic: [String]) {
+    func createWallet(mnemonic: [String], password: String) {
         let seed = try! Mnemonic.createSeed(mnemonic: mnemonic)
         let wallet = try! Wallet(seed: seed, network: network, debugPrints: true)
         
         let data = wallet.dumpPrivateKey().data(using: .utf8)
-        let encryptedPrivateKey = RNCryptor.encrypt(data: data!, withPassword: "TODO")
+        let encryptedPrivateKey = RNCryptor.encrypt(data: data!, withPassword: password)
+        
         DbJson.put(Keys.dbPrivateKey, Json(encryptedPrivateKey))
         
 //        DbJson.put(Keys.dbPrivateKey, Json(wallet.dumpPrivateKey()))
