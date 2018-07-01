@@ -54,7 +54,10 @@ class SendScreen: GScreen {
         if let address = EthereumAddress(value), address.isValid {
             self.nav.push(SendFormScreen(to: value))
         }
-        else {  // TODO: support ERC681
+        else if let payload = Erc681(url: URL(string: value)) {
+            self.nav.push(SendFormScreen(payload: payload))
+        }
+        else {
             self.launch.alert("Invalid ETH address")
         }
     }

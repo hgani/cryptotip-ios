@@ -1,5 +1,6 @@
 import GaniLib
 import Eureka
+import web3swift
 
 class SendFormScreen: GFormScreen {
     private var conversionRate: Float = 0.0
@@ -28,6 +29,12 @@ class SendFormScreen: GFormScreen {
         conversionField.title = "\(fiatCurrency) Amount"
         super.init()
     }
+    
+    convenience init(payload: Erc681) {
+        self.init(to: payload.recipient)
+        amountField.value = payload.value
+    }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("Unsupported")
@@ -58,9 +65,14 @@ class SendFormScreen: GFormScreen {
         section2.append(ButtonRow() { row in
             row.title = "Review and Send"
             }.onCellSelection { (cell, row) in
+                guard let recipient = self.destinationField.value, let address = EthereumAddress(recipient), address.isValid else {
+                    self.launch.alert("Invalid recipient address")
+                    return
+                }
+                
                 let values = self.values()
-                if let amountText = values["amount"] as? String, let amount = Float(amountText), let recipient = self.destinationField.value {
-                    let url = "ethereum:\(recipient)?amount=\(amount)"
+                if let amountText = values["amount"] as? String, let amount = Float(amountText) {
+                    let url = "ethereum:\(recipient)?value=\(amount)"
                     GLog.i("URL: \(url)")
                     self.launch.url(url)
                 }
