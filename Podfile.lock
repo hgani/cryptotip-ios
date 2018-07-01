@@ -41,6 +41,7 @@ PODS:
     - SwiftyJSON
     - TTTAttributedLabel
     - XLPagerTabStrip (~> 8.0)
+  - KeychainSwift (11.0.0)
   - Kingfisher (4.6.1)
   - libsodium (1.0.12)
   - QRCode (2.0)
@@ -72,6 +73,7 @@ PODS:
 DEPENDENCIES:
   - GaniLib (from `../ganilib-ios`)
   - GaniLib/Realm (from `../ganilib-ios`)
+  - KeychainSwift (~> 11.0)
   - QRCode (~> 2.0)
   - QRCodeReader.swift (~> 8.0)
   - web3swift (from `https://github.com/bankex/web3swift.git`)
@@ -83,6 +85,7 @@ SPEC REPOS:
     - BigInt
     - CryptoSwift
     - Eureka
+    - KeychainSwift
     - Kingfisher
     - libsodium
     - QRCode
@@ -118,6 +121,7 @@ SPEC CHECKSUMS:
   CryptoSwift: bca8c5b653dcc2d9734409242a070ff53bafac86
   Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
   GaniLib: 8917e360de90b872338568da15a3bf32ba6869bb
+  KeychainSwift: bea6bd9f98af7b8d7ca4aa79fe105c00fab532db
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   libsodium: 9a8faa5ef2fa0d2d57bd7f7d79bf8fb7c1a9f0ea
   QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
@@ -136,6 +140,6 @@ SPEC CHECKSUMS:
   web3swift: 8f1248592ee8446a03b0ed6e0df15147d60d4202
   XLPagerTabStrip: c908b17cbf42fcd2598ee1adfc49bae25444d88a
 
-PODFILE CHECKSUM: 0cb07bb9c642d19a7bcfb7fd89f6b9a7937dcb74
+PODFILE CHECKSUM: e162500f4ac5a109dde1df6140fe72284e685897
 
 COCOAPODS: 1.5.2

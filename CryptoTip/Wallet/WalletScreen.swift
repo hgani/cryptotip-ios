@@ -3,6 +3,7 @@ import CryptoSwift
 import CryptoEthereumSwift
 import EthereumKit
 import RNCryptor
+import KeychainSwift
 
 class WalletScreen: GScreen {
     let network: Network = Network.private(chainID: 4, testUse: true)
@@ -79,9 +80,9 @@ class WalletScreen: GScreen {
         let data = wallet.dumpPrivateKey().data(using: .utf8)
         let encryptedPrivateKey = RNCryptor.encrypt(data: data!, withPassword: password)
         
-        DbJson.put(Keys.dbPrivateKey, Json(encryptedPrivateKey))
+        let keychain = KeychainSwift()
+        keychain.set(encryptedPrivateKey, forKey: Keys.dbPrivateKey)
         
-//        DbJson.put(Keys.dbPrivateKey, Json(wallet.dumpPrivateKey()))
         DbJson.put(Keys.dbPublicKey, Json(wallet.generateAddress()))
     }
 }
