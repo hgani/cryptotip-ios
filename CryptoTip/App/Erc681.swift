@@ -2,33 +2,40 @@ import GaniLib
 
 class Erc681 {
     private let schema = "ethereum"
-    private let recipient: String
-    private let chainId: Int
-    private let value: String
-    private let gasLimit: String
-    private let gasPrice: String
-    private let gas: String
+    let url: URL
+    let recipient: String
+    let chainId: Int
+    let value: String?
+    let gasLimit: String?
+    let gasPrice: String?
+    let gas: String?
     
-    init?(url: URL) {
-        let urlString = url.absoluteString
+    init?(url inUrl: URL?) {
+        guard let origUrl = inUrl else {
+            return nil
+        }
+        
+        let urlString = origUrl.absoluteString
         guard urlString.starts(with: "\(schema):") else {
             return nil
         }
         
-        var newUrl = url
-        if !urlString.starts(with: "\(schema)://") {
+        if urlString.starts(with: "\(schema)://") {
+            self.url = origUrl
+        }
+        else {
             let regex = try? NSRegularExpression(pattern: "^\(schema):", options: [])
             let newString = regex!.stringByReplacingMatches(in: urlString, options: [], range: NSMakeRange(0, urlString.count), withTemplate: "$1//")
-            newUrl = URL(string: newString)!
+            self.url = URL(string: newString)!
         }
-        
-        guard let host = newUrl.host else {
+
+        guard let host = url.host else {
             return nil
         }
-        
+
         let recipient: String
         if let chainId = Int(host) {
-            if let user = newUrl.user {
+            if let user = url.user {
                 self.chainId = chainId
                 recipient = user
             }
@@ -40,19 +47,13 @@ class Erc681 {
             self.chainId = 1
             recipient = host
         }
-        
+
         self.recipient = recipient.starts(with: "pay-") ? String(recipient.split(separator: "-")[1]) : recipient
-        
-        guard let value = newUrl.param(name: "value"),
-            let gasLimit = newUrl.param(name: "gasLimit"),
-            let gasPrice = newUrl.param(name: "gasPrice"),
-            let gas = newUrl.param(name: "gas") else {
-            return nil
-        }
-        self.value = value
-        self.gasLimit = gasLimit
-        self.gasPrice = gasPrice
-        self.gas = gas
+
+        self.value = url.param(name: "value")
+        self.gasLimit = url.param(name: "gasLimit")
+        self.gasPrice = url.param(name: "gasPrice")
+        self.gas = url.param(name: "gas")
     }
     
 //    static func parse(url: URL) {
