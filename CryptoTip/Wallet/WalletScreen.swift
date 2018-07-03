@@ -6,21 +6,21 @@ import RNCryptor
 import KeychainSwift
 
 class WalletScreen: GScreen {
-    let network: Network = Network.private(chainID: 4, testUse: true)
-    open private(set) lazy var geth: Geth! = {
-        let configuration = Configuration(
-            network: network,
-            nodeEndpoint: "https://rinkeby.infura.io/z1sEfnzz0LLMsdYMX4PV",
-            etherscanAPIKey: "XE7QVJNVMKJT75ATEPY1HPWTPYCVCKMMJ7",
-            debugPrints: true
-        )
+//    let network: Network = Network.private(chainID: 4, testUse: true)
+//    open private(set) lazy var geth: Geth! = {
+//        let configuration = Configuration(
+//            network: network,
+//            nodeEndpoint: "https://rinkeby.infura.io/z1sEfnzz0LLMsdYMX4PV",
+//            etherscanAPIKey: "XE7QVJNVMKJT75ATEPY1HPWTPYCVCKMMJ7",
+//            debugPrints: true
+//        )
+//
+//        let geth = Geth(configuration: configuration)
+//            return geth
+//    }()
     
-        let geth = Geth(configuration: configuration)
-            return geth
-    }()
-    
-    private let passwordField = GTextField().width(.matchParent).spec(.standard).placeholder("Password")
-    private let confirmPasswordField = GTextField().width(.matchParent).spec(.standard).placeholder("Confirm password")
+    private let passwordField = GTextField().width(.matchParent).spec(.standard).secure(true).placeholder("Password")
+    private let confirmPasswordField = GTextField().width(.matchParent).spec(.standard).secure(true).placeholder("Confirm password")
     private let phraseLabel = GLabel().spec(.p)
     private let confirmCreateButton = GButton().title("Confirm").spec(.standard).hidden(true)
     
@@ -38,8 +38,8 @@ class WalletScreen: GScreen {
         container.addView(passwordField, top: 50)
         container.addView(confirmPasswordField, top: 10)
         
-        passwordField.isSecureTextEntry = true;
-        confirmPasswordField.isSecureTextEntry = true;
+//        passwordField.isSecureTextEntry = true;
+//        confirmPasswordField.isSecureTextEntry = true;
 
         container.addView(GAligner().width(.matchParent).withView(GButton()
             .spec(.primary)
@@ -74,8 +74,9 @@ class WalletScreen: GScreen {
     }
     
     func createWallet(mnemonic: [String], password: String) {
+        // TODO: Handle errors
         let seed = try! Mnemonic.createSeed(mnemonic: mnemonic)
-        let wallet = try! Wallet(seed: seed, network: network, debugPrints: true)
+        let wallet = try! Wallet(seed: seed, network: Settings.instance.network(), debugPrints: true)
         
         let data = wallet.dumpPrivateKey().data(using: .utf8)
         let encryptedPrivateKey = RNCryptor.encrypt(data: data!, withPassword: password)

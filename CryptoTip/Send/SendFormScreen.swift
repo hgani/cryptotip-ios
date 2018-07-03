@@ -63,7 +63,7 @@ class SendFormScreen: GFormScreen {
         section2.append(amountField)
         
         section2.append(ButtonRow() { row in
-            row.title = "Review and Send"
+            row.title = Settings.instance.hasWallet() ? "Review and Send" : "Send via External Wallet"
             }.onCellSelection { (cell, row) in
                 guard let recipient = self.destinationField.value, let address = EthereumAddress(recipient), address.isValid else {
                     self.launch.alert("Invalid recipient address")
@@ -71,10 +71,15 @@ class SendFormScreen: GFormScreen {
                 }
                 
                 let values = self.values()
-                if let amountText = values["amount"] as? String, let amount = Float(amountText) {
-                    let url = "ethereum:\(recipient)?value=\(amount)"
-                    GLog.i("URL: \(url)")
-                    self.launch.url(url)
+                if let amountText = values["amount"] as? String, let amount = Double(amountText) {
+                    if Settings.instance.hasWallet() {
+                        self.nav.push(SendReviewScreen(payload: TxPayload(recipient: recipient, amount: amount)))
+                    }
+                    else {
+                        let url = "ethereum:\(recipient)?value=\(amount)"
+                        GLog.i("URL: \(url)")
+                        self.launch.url(url)
+                    }
                 }
                 else {
                     self.launch.alert("Please enter amount and recipient")
@@ -88,11 +93,6 @@ class SendFormScreen: GFormScreen {
             }
         }
 
-//        self
-//            .leftMenu(controller: MyMenuNavController())
-//            .paddings(t: 20, l: 20, b: 20, r: 20)
-//            .end()
-        
         onRefresh()
     }
     
@@ -115,18 +115,4 @@ class SendFormScreen: GFormScreen {
             return false
         }
     }
-    
-//    private func setupHeaderFooter(height: Int? = nil, populate: @escaping (GHeaderFooterView) -> Void) -> HeaderFooterView<GHeaderFooterView> {
-//        var headerFooter = HeaderFooterView<GHeaderFooterView>(.class)
-//        headerFooter.height = {
-//            if let h = height {
-//                return CGFloat(h)
-//            }
-//            return UITableViewAutomaticDimension
-//        }
-//        headerFooter.onSetupView = { view, section in
-//            populate(view.clear())
-//        }
-//        return headerFooter
-//    }
 }
