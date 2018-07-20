@@ -55,43 +55,6 @@ class Erc681 {
         self.gasPrice = url.param(name: "gasPrice")
         self.gas = url.param(name: "gas")
     }
-    
-//    static func parse(url: URL) {
-//        var newURL = url
-//        if newURL.absoluteString.range(of: "://") == nil {
-//            let urlString = newURL.absoluteString.replacingOccurrences(of: ":", with: "://")
-//            newURL = URL(string: urlString)!
-//        }
-//
-//        var recipientAddress: String
-//        var chainId: Int = 1
-//
-//        if Int(newURL.host!) == nil {
-//            recipientAddress = newURL.host!
-//        }
-//        else {
-//            chainId = Int(newURL.host!)!
-//            recipientAddress = newURL.user!
-//        }
-//
-//        if recipientAddress.range(of: "pay-") != nil {
-//            recipientAddress = String((recipientAddress.split(separator: "-")[1]))
-//        }
-//
-//        let value = newURL.param(name: "value")
-//        let gasLimit = newURL.param(name: "gasLimit")
-//        let gasPrice = newURL.param(name: "gasPrice")
-//        let gas = newURL.param(name: "gas")
-//
-//        print(newURL.path)
-//        print(recipientAddress)
-//        print(chainId)
-//        print(value)
-//        print(gasLimit)
-//        print(gasPrice)
-//        print(gas)
-//
-//    }
 }
 
 private extension URL {
