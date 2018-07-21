@@ -15,11 +15,12 @@ class ReceiveScreen: GScreen {
 
         self
             .leftMenu(controller: MyMenuNavController())
-            .paddings(t: 10, l: 10, b: 10, r: 10)
             .done()
-        
-        container.addView(addressPanel)
-        container.addView(GAligner()
+            
+        scrollPanel.paddings(t: 10, l: 10, b: 10, r: 10)
+
+        scrollPanel.addView(addressPanel)
+        scrollPanel.addView(GAligner()
             .width(.matchParent)
             .withView(qrView), top: 50)
 

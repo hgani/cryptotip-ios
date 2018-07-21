@@ -18,7 +18,7 @@ class TransactionListScreen: GScreen {
             .color(bg: .navbarBg, text: .navbarText)
 
         self
-            .paddings(t: 0, l: 0, b: 0, r: 0)
+//            .paddings(t: 0, l: 0, b: 0, r: 0)
             .leftMenu(controller: MyMenuNavController())
 //            .rightBarButton(item: GBarButtonItem()
 //                .icon(from: .FontAwesome, code: "gear")

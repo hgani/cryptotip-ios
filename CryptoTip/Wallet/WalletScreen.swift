@@ -31,17 +31,14 @@ class WalletScreen: GScreen {
         nav
             .color(bg: .navbarBg, text: .navbarText)
 
-        self
+        scrollPanel
             .paddings(t: 10, l: 20, b: 10, r: 20)
             .done()
         
-        container.addView(passwordField, top: 50)
-        container.addView(confirmPasswordField, top: 10)
+        scrollPanel.addView(passwordField, top: 50)
+        scrollPanel.addView(confirmPasswordField, top: 10)
         
-//        passwordField.isSecureTextEntry = true;
-//        confirmPasswordField.isSecureTextEntry = true;
-
-        container.addView(GAligner().width(.matchParent).withView(GButton()
+        scrollPanel.addView(GAligner().width(.matchParent).withView(GButton()
             .spec(.primary)
             .title("Create wallet")
             .onClick { _ in
@@ -49,8 +46,8 @@ class WalletScreen: GScreen {
             }), top: 10
         )
         
-        container.addView(phraseLabel, top: 30)
-        container.addView(GAligner().width(.matchParent).withView(confirmCreateButton), top: 10)
+        scrollPanel.addView(phraseLabel, top: 30)
+        scrollPanel.addView(GAligner().width(.matchParent).withView(confirmCreateButton), top: 10)
     }
     
     func createMnemonic() {

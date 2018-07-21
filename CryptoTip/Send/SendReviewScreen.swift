@@ -27,13 +27,13 @@ class SendReviewScreen: GScreen {
         nav
             .color(bg: .navbarBg, text: .navbarText)
         
-        self.paddings(t: 40, l: 20, b: 10, r: 20).done()
+        scrollPanel.paddings(t: 40, l: 20, b: 10, r: 20).done()
         
-        container.addView(GLabel().text("To: \(payload.recipient)"))
-        container.addView(GLabel().text("Amount: \(payload.amount) ETH"), top: 10)
+        scrollPanel.addView(GLabel().text("To: \(payload.recipient)"))
+        scrollPanel.addView(GLabel().text("Amount: \(payload.amount) ETH"), top: 10)
         
-        container.addView(passwordField, top: 30)
-        container.addView(GButton().spec(.standard).title("Send").onClick { _ in
+        scrollPanel.addView(passwordField, top: 30)
+        scrollPanel.addView(GButton().spec(.standard).title("Send").onClick { _ in
             self.executeTransaction()
         }, top: 10)
 
