@@ -17,7 +17,7 @@ class ReceiveScreen: GScreen {
             .leftMenu(controller: MyMenuNavController())
             .done()
             
-        scrollPanel.paddings(t: 10, l: 10, b: 10, r: 10)
+        scrollPanel.paddings(t: 10, l: 10, b: 10, r: 10).done()
 
         scrollPanel.addView(addressPanel)
         scrollPanel.addView(GAligner()
@@ -35,6 +35,9 @@ class ReceiveScreen: GScreen {
         super.viewWillAppear(animated)
         
         self.addressPanel.reload()
-        _ = qrView.source(image: QRCode(addressPanel.address)?.image)
+        
+        if let address = addressPanel.address {
+            _ = qrView.source(image: QRCode(address)?.image)
+        }
     }
 }

@@ -4,6 +4,7 @@ import web3swift
 
 class SettingsScreen: GFormScreen {
     private var section = Section()
+    private let addressLabel = GLabel().specs(.small).copyable()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,8 @@ class SettingsScreen: GFormScreen {
         section.header = setupHeaderFooter() { view in
             view
                 .paddings(t: 10, l: 20, b: 10, r: 20)
-                .append(GLabel().text("\(Settings.instance.publicKey)"))
+                .append(GLabel().text("Wallet address:"))
+                .append(self.addressLabel)
                 .end()
         }
         
@@ -41,5 +43,12 @@ class SettingsScreen: GFormScreen {
         }.onCellSelection { (cell, row) in
             self.nav.push(WalletCreateScreen())
         })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let address = Settings.instance.publicKey
+        _ = addressLabel.text(address ?? "[not set-up]")
     }
 }

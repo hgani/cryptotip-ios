@@ -49,7 +49,7 @@ class WalletCreateScreen: GScreen {
         
         scrollPanel.addView(GAligner().width(.matchParent).withView(GButton()
             .specs(.primary)
-            .title("Generate wallet")
+            .title("Generate wallet...")
             .onClick { _ in
                 self.createMnemonic()
             }), top: 10
@@ -86,8 +86,7 @@ class WalletCreateScreen: GScreen {
         
         confirmCreateButton.hidden(false).onClick { _ in
             KeychainSwift().set(encryptedPrivateKey, forKey: Keys.dbPrivateKey)
-            
-            DbJson.put(Keys.dbPublicKey, Json(publicKey))
+            DbJson.instance.set(Json(publicKey), forKey: Keys.dbPublicKey)
             
             self.indicator.show(success: "Done!")
             self.nav.pop().done()

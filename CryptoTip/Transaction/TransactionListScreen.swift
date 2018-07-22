@@ -54,9 +54,7 @@ class TransactionListScreen: GScreen {
         self.transactions.removeAll()
         self.tableView.reloadData()
         
-        // "0xab86ca6c0e64092c4f444af47a2bebba67f6cd7b"
-        let address = Settings.instance.publicKey
-        if !address.isEmpty {
+        if let address = Settings.instance.publicKey {
             let params = [
                 "apikey": "8XY5G7CC8CYMAJ267UBE58QNWDG1H49JHT",
                 "module": "account",

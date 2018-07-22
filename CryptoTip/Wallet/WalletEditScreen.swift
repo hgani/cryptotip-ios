@@ -7,7 +7,7 @@ class WalletEditScreen: GFormScreen {
     private let addressField = TextRow("to") { row in
         row.title = "Wallet address"
         row.placeholder = "Enter to view transaction history"
-        row.value = DbJson.get(Keys.dbPublicKey).string
+        row.value = DbJson.instance.object(forKey: Keys.dbPublicKey).string
     }
     
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class WalletEditScreen: GFormScreen {
                 .icon(from: .FontAwesome, code: "save")
                 .onClick({
                     if let value = self.addressField.value, let address = EthereumAddress(value), address.isValid {
-                        DbJson.put(Keys.dbPublicKey, Json(value))
+                        DbJson.instance.set(Json(value), forKey: Keys.dbPublicKey)
                         self.nav.pop().done()
                     }
                     else {

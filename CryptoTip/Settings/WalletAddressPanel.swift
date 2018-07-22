@@ -1,9 +1,9 @@
 import GaniLib
 
 class WalletAddressPanel: GVerticalPanel {
-    public private(set) var address = ""
+    public private(set) var address: String?
     private let nav: NavHelper
-    private let addressLabel = GLabel().specs(.small)
+    private let addressLabel = GLabel().specs(.small).copyable()
     
     init(nav: NavHelper) {
         self.nav = nav
@@ -17,7 +17,6 @@ class WalletAddressPanel: GVerticalPanel {
             .width(.matchParent)
             .withViews(
                 addressView,
-                //                GLabel().text("Wallet address: \(address.isEmpty ? "[unspecified]" : address)"),
                 GLabel().specs(.a).text("settings").onClick { _ in
                     nav.push(SettingsScreen())
             })
@@ -31,8 +30,7 @@ class WalletAddressPanel: GVerticalPanel {
     }
     
     public func reload() {
-//        self.address = DbJson.get(Keys.dbPublicKey).stringValue
         self.address = Settings.instance.publicKey
-        _ = self.addressLabel.text("\(address.isEmpty ? "[unspecified]" : address)")
+        _ = self.addressLabel.text(address ?? "[not set-up]")
     }
 }
