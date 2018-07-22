@@ -6,7 +6,7 @@ import RNCryptor
 import EthereumKit
 
 class SendReviewScreen: GScreen {
-    private let passwordField = GTextField().width(.matchParent).spec(.standard).secure(true).placeholder("Password")
+    private let passwordField = GTextField().width(.matchParent).specs(.standard).secure(true).placeholder("Password")
     
     private let payload: TxPayload
     

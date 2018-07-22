@@ -43,6 +43,15 @@ class SettingsScreen: GFormScreen {
         }.onCellSelection { (cell, row) in
             self.nav.push(WalletCreateScreen())
         })
+        
+        section.append(LabelRow() { row in
+            row.title = "Restore wallet"
+            row.cellStyle = .value1
+            }.cellUpdate { (cell, row) in
+                cell.accessoryType = .disclosureIndicator
+            }.onCellSelection { (cell, row) in
+                self.nav.push(WalletRestoreScreen())
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -1,36 +1,20 @@
 import GaniLib
-import CryptoSwift
-import CryptoEthereumSwift
 import EthereumKit
-import RNCryptor
 import KeychainSwift
 
 class WalletCreateScreen: GScreen {
-//    let network: Network = Network.private(chainID: 4, testUse: true)
-//    open private(set) lazy var geth: Geth! = {
-//        let configuration = Configuration(
-//            network: network,
-//            nodeEndpoint: "https://rinkeby.infura.io/z1sEfnzz0LLMsdYMX4PV",
-//            etherscanAPIKey: "XE7QVJNVMKJT75ATEPY1HPWTPYCVCKMMJ7",
-//            debugPrints: true
-//        )
-//
-//        let geth = Geth(configuration: configuration)
-//            return geth
-//    }()
-    
-    private let passwordField = GTextField().width(.matchParent).spec(.standard).secure(true).placeholder("Password")
-    private let confirmPasswordField = GTextField().width(.matchParent).spec(.standard).secure(true).placeholder("Confirm password")
+    private let passwordField = GTextField().width(.matchParent).specs(.standard).secure(true).placeholder("Password")
+    private let confirmPasswordField = GTextField().width(.matchParent).specs(.standard).secure(true).placeholder("Confirm password")
     
     private let walletPanel = GVerticalPanel().hidden(true)
     private let addressLabel = GLabel().width(.matchParent).paddings(t: 5, l: 10, b: 5, r: 10).color(bg: .lightShade).specs(.small).copyable()
     private let phraseLabel = GLabel().width(.matchParent).paddings(t: 5, l: 10, b: 5, r: 10).color(bg: .lightShade).specs(.p).copyable()
-    private let confirmCreateButton = GButton().title("Confirm").specs(.standard).hidden(true)
+    private let confirmCreateButton = GButton().title("Confirm").specs(.standard)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Wallet"
+        self.title = "Generate Wallet"
         nav
             .color(bg: .navbarBg, text: .navbarText)
 
@@ -44,14 +28,15 @@ class WalletCreateScreen: GScreen {
                 .text("This will replace the current wallet. Make sure you've backed up the wallet before creating a new one."), top: 50)
         }
         
-        scrollPanel.addView(passwordField, top: 20)
+        scrollPanel.addView(GLabel().text("Enter password to protect the restored wallet"), top: 20)
+        scrollPanel.addView(passwordField, top: 10)
         scrollPanel.addView(confirmPasswordField, top: 10)
         
         scrollPanel.addView(GAligner().width(.matchParent).withView(GButton()
             .specs(.primary)
             .title("Generate wallet...")
             .onClick { _ in
-                self.createMnemonic()
+                self.generateMnemonic()
             }), top: 10
         )
         
@@ -66,41 +51,27 @@ class WalletCreateScreen: GScreen {
         )
     }
     
-    func createMnemonic() {
-        guard let password = passwordField.text, password.count >= 8 else {
-            self.launch.alert("Specify a password (min 8 characters). This will be used to secure your private key.")
-            return
-        }
+    func generateMnemonic() {
+        let helper = WalletHelper(screen: self)
         
-        guard password == confirmPasswordField.text else {
-            self.launch.alert("Password confirmation does not match")
+        guard let password = helper.validatePassword(field: passwordField, confirmField: confirmPasswordField) else {
             return
         }
         
         let mnemonic = Mnemonic.create(strength: .hight, language: .english)
-        let (publicKey, encryptedPrivateKey) = createWallet(mnemonic: mnemonic, password: password)
-        
-        addressLabel.text(publicKey).done()
-        phraseLabel.text(mnemonic.joined(separator: " ")).done()
-        walletPanel.hidden(false).done()
-        
-        confirmCreateButton.hidden(false).onClick { _ in
-            KeychainSwift().set(encryptedPrivateKey, forKey: Keys.dbPrivateKey)
-            DbJson.instance.set(Json(publicKey), forKey: Keys.dbPublicKey)
+        if let (publicKey, encryptedPrivateKey) = helper.createWallet(mnemonic: mnemonic, password: password) {
+            addressLabel.text(publicKey).done()
+            phraseLabel.text(mnemonic.joined(separator: " ")).done()
             
-            self.indicator.show(success: "Done!")
-            self.nav.pop().done()
-        }.done()
-    }
-    
-    func createWallet(mnemonic: [String], password: String) -> (String, Data) {
-        // TODO: Handle errors
-        let seed = try! Mnemonic.createSeed(mnemonic: mnemonic)
-        let wallet = try! Wallet(seed: seed, network: Settings.instance.network(), debugPrints: true)
-        
-        let data = wallet.dumpPrivateKey().data(using: .utf8)
-        let encryptedPrivateKey = RNCryptor.encrypt(data: data!, withPassword: password)
-        let publicKey = wallet.generateAddress()
-        return (publicKey, encryptedPrivateKey)
+            confirmCreateButton.onClick { _ in
+                KeychainSwift().set(encryptedPrivateKey, forKey: Keys.dbPrivateKey)
+                DbJson.instance.set(Json(publicKey), forKey: Keys.dbPublicKey)
+                
+                self.indicator.show(success: "Done!")
+                self.nav.pop().done()
+                }.done()
+            
+            walletPanel.hidden(false).done()
+        }
     }
 }

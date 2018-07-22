@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1937A7C9CB89030FE2FCEF81 /* Pods_CryptoTip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A86F839E9EC75017586033 /* Pods_CryptoTip.framework */; };
+		C10A93AD210464C500A6919A /* WalletRestoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A93AC210464C500A6919A /* WalletRestoreScreen.swift */; };
+		C10A93B121046F8700A6919A /* WalletHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A93B021046F8700A6919A /* WalletHelper.swift */; };
 		C1108AB020EB004400983274 /* SendReviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1108AAF20EB004400983274 /* SendReviewScreen.swift */; };
 		C1108AB220EB095A00983274 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1108AB120EB095A00983274 /* Settings.swift */; };
 		C120F01E20E61F06006FAF76 /* Erc681.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120F01D20E61F06006FAF76 /* Erc681.swift */; };
-		C120F02020E871FE006FAF76 /* GTextFieldSpec+My.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120F01F20E871FE006FAF76 /* GTextFieldSpec+My.swift */; };
+		C120F02020E871FE006FAF76 /* GFieldSpec+My.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120F01F20E871FE006FAF76 /* GFieldSpec+My.swift */; };
 		C137F16E20DE3F5A001A9900 /* WalletCreateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137F16D20DE3F5A001A9900 /* WalletCreateScreen.swift */; };
 		C137F17020DE44B2001A9900 /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137F16F20DE44B2001A9900 /* CryptoEthereumSwift.framework */; };
 		C137F17220DE44B6001A9900 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137F17120DE44B6001A9900 /* CryptoSwift.framework */; };
@@ -59,10 +61,12 @@
 /* Begin PBXFileReference section */
 		19E19B858DA04937FCED699C /* Pods-CryptoTip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoTip/Pods-CryptoTip.debug.xcconfig"; sourceTree = "<group>"; };
 		47A274DFB43F59B55825C509 /* Pods-CryptoTip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTip.release.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoTip/Pods-CryptoTip.release.xcconfig"; sourceTree = "<group>"; };
+		C10A93AC210464C500A6919A /* WalletRestoreScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletRestoreScreen.swift; sourceTree = "<group>"; };
+		C10A93B021046F8700A6919A /* WalletHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletHelper.swift; sourceTree = "<group>"; };
 		C1108AAF20EB004400983274 /* SendReviewScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendReviewScreen.swift; sourceTree = "<group>"; };
 		C1108AB120EB095A00983274 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C120F01D20E61F06006FAF76 /* Erc681.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Erc681.swift; sourceTree = "<group>"; };
-		C120F01F20E871FE006FAF76 /* GTextFieldSpec+My.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTextFieldSpec+My.swift"; sourceTree = "<group>"; };
+		C120F01F20E871FE006FAF76 /* GFieldSpec+My.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GFieldSpec+My.swift"; sourceTree = "<group>"; };
 		C137F16D20DE3F5A001A9900 /* WalletCreateScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletCreateScreen.swift; sourceTree = "<group>"; };
 		C137F16F20DE44B2001A9900 /* CryptoEthereumSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoEthereumSwift.framework; path = Carthage/Build/iOS/CryptoEthereumSwift.framework; sourceTree = "<group>"; };
 		C137F17120DE44B6001A9900 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				C137F16D20DE3F5A001A9900 /* WalletCreateScreen.swift */,
+				C10A93B021046F8700A6919A /* WalletHelper.swift */,
+				C10A93AC210464C500A6919A /* WalletRestoreScreen.swift */,
 				C137F17820DF1E4B001A9900 /* WalletEditScreen.swift */,
 			);
 			path = Wallet;
@@ -202,7 +208,7 @@
 				C1D829E920BF85840042B413 /* UIColor+My.swift */,
 				C1D829EA20BF85840042B413 /* MyHttpDelegate.swift */,
 				C1D829EB20BF85840042B413 /* GLabelSpec+My.swift */,
-				C120F01F20E871FE006FAF76 /* GTextFieldSpec+My.swift */,
+				C120F01F20E871FE006FAF76 /* GFieldSpec+My.swift */,
 				C137F17620DE6FBF001A9900 /* GButtonSpec+My.swift */,
 				C1D829EC20BF85840042B413 /* Build */,
 			);
@@ -494,7 +500,8 @@
 				C1D82A1020BF88420042B413 /* SendFormScreen.swift in Sources */,
 				C1D82A0B20BF88420042B413 /* TransactionCell.swift in Sources */,
 				C1D82A0F20BF88420042B413 /* SendScreen.swift in Sources */,
-				C120F02020E871FE006FAF76 /* GTextFieldSpec+My.swift in Sources */,
+				C120F02020E871FE006FAF76 /* GFieldSpec+My.swift in Sources */,
+				C10A93AD210464C500A6919A /* WalletRestoreScreen.swift in Sources */,
 				C1D829F320BF85840042B413 /* MyMenuNavController.swift in Sources */,
 				C1D829FA20BF85840042B413 /* ProductionBuild.swift in Sources */,
 				C1108AB020EB004400983274 /* SendReviewScreen.swift in Sources */,
@@ -514,6 +521,7 @@
 				C1D829F820BF85840042B413 /* Build.swift in Sources */,
 				C1D829F520BF85840042B413 /* MyHttpDelegate.swift in Sources */,
 				C1D829F420BF85840042B413 /* UIColor+My.swift in Sources */,
+				C10A93B121046F8700A6919A /* WalletHelper.swift in Sources */,
 				C1108AB220EB095A00983274 /* Settings.swift in Sources */,
 				C1D829F620BF85840042B413 /* GLabelSpec+My.swift in Sources */,
 				C1D829FB20BF85840042B413 /* DemoBuild.swift in Sources */,
