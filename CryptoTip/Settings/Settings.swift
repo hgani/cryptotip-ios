@@ -5,6 +5,7 @@ import EthereumKit
 class Settings {
     static let instance = Settings()
     let keychain = KeychainSwift()
+    let publicKey = DbJson.get(Keys.dbPublicKey).stringValue
     
     func hasWallet() -> Bool {
         return keychain.getData(Keys.dbPrivateKey) != nil

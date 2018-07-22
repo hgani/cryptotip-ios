@@ -12,7 +12,7 @@
 		C1108AB220EB095A00983274 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1108AB120EB095A00983274 /* Settings.swift */; };
 		C120F01E20E61F06006FAF76 /* Erc681.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120F01D20E61F06006FAF76 /* Erc681.swift */; };
 		C120F02020E871FE006FAF76 /* GTextFieldSpec+My.swift in Sources */ = {isa = PBXBuildFile; fileRef = C120F01F20E871FE006FAF76 /* GTextFieldSpec+My.swift */; };
-		C137F16E20DE3F5A001A9900 /* WalletScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137F16D20DE3F5A001A9900 /* WalletScreen.swift */; };
+		C137F16E20DE3F5A001A9900 /* WalletCreateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137F16D20DE3F5A001A9900 /* WalletCreateScreen.swift */; };
 		C137F17020DE44B2001A9900 /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137F16F20DE44B2001A9900 /* CryptoEthereumSwift.framework */; };
 		C137F17220DE44B6001A9900 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137F17120DE44B6001A9900 /* CryptoSwift.framework */; };
 		C137F17420DE44BB001A9900 /* EthereumKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137F17320DE44BB001A9900 /* EthereumKit.framework */; };
@@ -63,7 +63,7 @@
 		C1108AB120EB095A00983274 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C120F01D20E61F06006FAF76 /* Erc681.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Erc681.swift; sourceTree = "<group>"; };
 		C120F01F20E871FE006FAF76 /* GTextFieldSpec+My.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTextFieldSpec+My.swift"; sourceTree = "<group>"; };
-		C137F16D20DE3F5A001A9900 /* WalletScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletScreen.swift; sourceTree = "<group>"; };
+		C137F16D20DE3F5A001A9900 /* WalletCreateScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletCreateScreen.swift; sourceTree = "<group>"; };
 		C137F16F20DE44B2001A9900 /* CryptoEthereumSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoEthereumSwift.framework; path = Carthage/Build/iOS/CryptoEthereumSwift.framework; sourceTree = "<group>"; };
 		C137F17120DE44B6001A9900 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		C137F17320DE44BB001A9900 /* EthereumKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EthereumKit.framework; path = Carthage/Build/iOS/EthereumKit.framework; sourceTree = "<group>"; };
@@ -138,7 +138,8 @@
 		C137F16C20DE3F5A001A9900 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				C137F16D20DE3F5A001A9900 /* WalletScreen.swift */,
+				C137F16D20DE3F5A001A9900 /* WalletCreateScreen.swift */,
+				C137F17820DF1E4B001A9900 /* WalletEditScreen.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -225,7 +226,6 @@
 			children = (
 				C1D829FD20BF88420042B413 /* SettingsScreen.swift */,
 				C1108AB120EB095A00983274 /* Settings.swift */,
-				C137F17820DF1E4B001A9900 /* WalletEditScreen.swift */,
 				C1D829FE20BF88420042B413 /* WalletAddressPanel.swift */,
 			);
 			path = Settings;
@@ -501,7 +501,7 @@
 				C1D829D720BF841A0042B413 /* ViewController.swift in Sources */,
 				C137F17920DF1E4B001A9900 /* WalletEditScreen.swift in Sources */,
 				C137F17720DE6FBF001A9900 /* GButtonSpec+My.swift in Sources */,
-				C137F16E20DE3F5A001A9900 /* WalletScreen.swift in Sources */,
+				C137F16E20DE3F5A001A9900 /* WalletCreateScreen.swift in Sources */,
 				C1D82A0A20BF88420042B413 /* WalletAddressPanel.swift in Sources */,
 				C1D829F220BF85840042B413 /* Keys.swift in Sources */,
 				C1D82A0E20BF88420042B413 /* Transaction.swift in Sources */,

@@ -15,14 +15,23 @@ class SettingsScreen: GFormScreen {
         
         form += [section]
         
-        section.append(LabelRow() { row in
-            row.title = "Enter existing wallet address"
-            row.cellStyle = .value1
-            }.cellUpdate { (cell, row) in
-                cell.accessoryType = .disclosureIndicator
-            }.onCellSelection { (cell, row) in
-                self.nav.push(WalletEditScreen())
-        })
+        // TODO: Display balance
+        section.header = setupHeaderFooter() { view in
+            view
+                .paddings(t: 10, l: 20, b: 10, r: 20)
+                .append(GLabel().text("\(Settings.instance.publicKey)"))
+                .end()
+        }
+        
+        // Hide this to simplify usage
+//        section.append(LabelRow() { row in
+//            row.title = "Enter existing wallet address"
+//            row.cellStyle = .value1
+//            }.cellUpdate { (cell, row) in
+//                cell.accessoryType = .disclosureIndicator
+//            }.onCellSelection { (cell, row) in
+//                self.nav.push(WalletEditScreen())
+//        })
         
         section.append(LabelRow() { row in
             row.title = "Create new wallet"
@@ -30,7 +39,7 @@ class SettingsScreen: GFormScreen {
         }.cellUpdate { (cell, row) in
             cell.accessoryType = .disclosureIndicator
         }.onCellSelection { (cell, row) in
-            self.nav.push(WalletScreen())
+            self.nav.push(WalletCreateScreen())
         })
     }
 }

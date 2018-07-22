@@ -16,18 +16,18 @@ class SendScreen: GScreen {
             .leftMenu(controller: MyMenuNavController())
             .done()
             
-        scrollPanel.paddings(t: 20, l: 20, b: 20, r: 20)
+        scrollPanel.paddings(t: 20, l: 20, b: 20, r: 20).done()
         
         scrollPanel.addView(GLabel()
             .width(.matchParent)
             .align(.center)
-            .spec(.h1)
+            .specs(.h1)
             .text("Scan to send coin"), top: 50)
         
         scrollPanel.addView(GLabel()
             .width(.matchParent)
             .align(.center)
-            .spec(.p)
+            .specs(.p)
             .text("Click the QR icon below"), top: 40)
         
         scrollPanel.addView(GLabel()

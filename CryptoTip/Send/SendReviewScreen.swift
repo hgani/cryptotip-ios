@@ -33,7 +33,7 @@ class SendReviewScreen: GScreen {
         scrollPanel.addView(GLabel().text("Amount: \(payload.amount) ETH"), top: 10)
         
         scrollPanel.addView(passwordField, top: 30)
-        scrollPanel.addView(GButton().spec(.standard).title("Send").onClick { _ in
+        scrollPanel.addView(GButton().specs(.standard).title("Send").onClick { _ in
             self.executeTransaction()
         }, top: 10)
 

@@ -3,7 +3,7 @@ import GaniLib
 extension GButtonSpec {
     static let primary = GButtonSpec() { view in
         view
-            .color(bg: UIColor(hex: "#a49595"))
+            .color(bg: UIColor(hex: "#7b6262"))
             .border(color: UIColor(hex: "#a49595"))
             .done()
     }

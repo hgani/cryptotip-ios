@@ -44,7 +44,7 @@ class TransactionListScreen: GScreen {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if DbJson.get(Keys.dbPublicKey).stringValue != addressPanel.address {
+        if Settings.instance.publicKey != addressPanel.address {
             onRefresh()
         }
     }
@@ -55,7 +55,7 @@ class TransactionListScreen: GScreen {
         self.tableView.reloadData()
         
         // "0xab86ca6c0e64092c4f444af47a2bebba67f6cd7b"
-        let address = addressPanel.address
+        let address = Settings.instance.publicKey
         if !address.isEmpty {
             let params = [
                 "apikey": "8XY5G7CC8CYMAJ267UBE58QNWDG1H49JHT",

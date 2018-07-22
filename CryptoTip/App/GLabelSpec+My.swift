@@ -19,5 +19,8 @@ extension GLabelSpec {
     static let small = GLabelSpec() { label in
         _ = label.font(nil, size: 12)
     }
+    static let danger = GLabelSpec() { label in
+        _ = label.color(bg: nil, text: .red)
+    }
 }
 

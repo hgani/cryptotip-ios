@@ -1,8 +1,8 @@
 import GaniLib
 
 class TransactionCell: GTableViewCustomCell {
-    let txHash = GLabel().spec(.h1)
-    let price = GLabel().spec(.p)
+    let txHash = GLabel().specs(.h1)
+    let price = GLabel().specs(.p)
     
     required init(style: UITableViewCellStyle) {
         super.init(style: style)
