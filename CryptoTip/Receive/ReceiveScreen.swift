@@ -16,8 +16,10 @@ class ReceiveScreen: GScreen {
         self
             .leftMenu(controller: MyMenuNavController())
             .done()
-            
-        scrollPanel.paddings(t: 10, l: 10, b: 10, r: 10).done()
+        
+        container.content.addView(
+            scrollPanel.paddings(t: 10, l: 10, b: 10, r: 10)
+        )
 
         scrollPanel.addView(addressPanel)
         scrollPanel.addView(GAligner()

@@ -18,9 +18,10 @@ class WalletCreateScreen: GScreen {
         nav
             .color(bg: .navbarBg, text: .navbarText)
 
-        scrollPanel
-            .paddings(t: 10, l: 20, b: 10, r: 20)
-            .done()
+        container.content.addView(
+            scrollPanel
+                .paddings(t: 10, l: 20, b: 10, r: 20)
+        )
         
         if Settings.instance.hasWallet() {
             scrollPanel.addView(GLabel()
