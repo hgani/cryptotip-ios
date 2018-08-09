@@ -20,7 +20,7 @@ class WalletEditScreen: GFormScreen {
         
         self
             .rightBarButton(item: GBarButtonItem()
-                .icon(from: .FontAwesome, code: "save")
+                .icon(from: .fontAwesome, code: "save")
                 .onClick({
                     if let value = self.addressField.value, let address = EthereumAddress(value), address.isValid {
                         DbJson.instance.set(Json(value), forKey: Keys.dbPublicKey)

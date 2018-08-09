@@ -1,13 +1,13 @@
 import GaniLib
 
 class TransactionListScreen: GScreen {
-    fileprivate let tableView = GTableView()
+    fileprivate let tableView = GTableView().width(.matchParent).height(.matchParent)
     fileprivate var transactions = [Transaction]()
     fileprivate lazy var addressPanel = WalletAddressPanel(nav: nav)
     
-    open override func screenContent() -> UIView {
-        return self.tableView
-    }
+//    open override func screenContent() -> UIView {
+//        return self.tableView
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,21 +18,16 @@ class TransactionListScreen: GScreen {
             .color(bg: .navbarBg, text: .navbarText)
 
         self
-//            .paddings(t: 0, l: 0, b: 0, r: 0)
             .leftMenu(controller: MyMenuNavController())
-//            .rightBarButton(item: GBarButtonItem()
-//                .icon(from: .FontAwesome, code: "gear")
-//                .onClick({
-//                    self.nav.push(SettingsScreen())
-//                }))
             .done()
 
-        tableView
-            .autoRowHeight(estimate: 300)
-            .delegate(self)
-            .source(self)
-            .reload()
-            .done()
+        container.content.addView(
+            tableView
+                .autoRowHeight(estimate: 300)
+                .delegate(self)
+                .source(self)
+                .reload()
+        )
 
         tableView.addSubview(refresher)
         

@@ -7,6 +7,7 @@ target 'CryptoTip' do
 
   pod 'GaniLib', path: '../ganilib-ios'
   pod 'GaniLib/Realm', path: '../ganilib-ios'
+  pod 'GaniLib/Eureka', path: '../ganilib-ios'
   
   pod 'QRCodeReader.swift', '~> 8.0'
   pod 'QRCode', '~> 2.0'
