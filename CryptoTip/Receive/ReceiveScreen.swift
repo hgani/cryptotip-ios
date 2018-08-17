@@ -9,7 +9,7 @@ class ReceiveScreen: GScreen {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Receive"
+        self.title = "Receive a tip"
         nav
             .color(bg: .navbarBg, text: .navbarText)
 
@@ -22,9 +22,17 @@ class ReceiveScreen: GScreen {
         )
 
         scrollPanel.addView(addressPanel)
+        scrollPanel.addView(
+            GLabel()
+                .paddings(t: nil, l: 10, b: nil, r: 10)
+                .width(.matchParent)
+                .align(.center)
+                .text("Present this QR code to the tipper to receive coins")
+            , top: 50
+        )
         scrollPanel.addView(GAligner()
             .width(.matchParent)
-            .withView(qrView), top: 50)
+            .withView(qrView), top: 20)
 
 //        let web3 = Web3.InfuraRinkebyWeb3()
 //        let blockNumber = web3.eth.getBlockNumber()

@@ -7,7 +7,7 @@ class SendScreen: GScreen {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Send"
+        self.title = "Send a tip"
         
         nav
             .color(bg: .navbarBg, text: .navbarText)
@@ -23,14 +23,13 @@ class SendScreen: GScreen {
         scrollPanel.addView(GLabel()
             .width(.matchParent)
             .align(.center)
-            .specs(.h1)
-            .text("Scan to send coin"), top: 50)
+            .text("Scan the recipient's QR wallet to send coins"), top: 50)
         
         scrollPanel.addView(GLabel()
             .width(.matchParent)
             .align(.center)
             .specs(.p)
-            .text("Click the QR icon below"), top: 40)
+            .text("Click the QR icon below to start"), top: 40)
         
         scrollPanel.addView(GLabel()
             .width(.matchParent)
