@@ -60,6 +60,11 @@ class TransactionListScreen: GScreen {
                 "offset": "50"
             ]
             
+            self.tableHeader
+                .clear()
+                .append(self.addressPanel)
+                .done()
+            
             _ = Rest.get(url: "\(Build.instance.etherscanHost())/api", params: params).execute(indicator: refresher) { json in
                 let items = json["result"].arrayValue
                 if items.count > 0 {
@@ -69,8 +74,6 @@ class TransactionListScreen: GScreen {
                 }
                 else {
                     self.tableHeader
-                        .clear()
-                        .append(self.addressPanel)
                         .append(GLabel()
                             .paddings(t: 30, l: 20, b: 10, r: 20)
                             .specs(.p)
@@ -81,6 +84,10 @@ class TransactionListScreen: GScreen {
                 self.tableView.reloadData()
                 return true
             }
+            
+            self.tableHeader
+                .append(GView().width(.matchParent).height(1).color(bg: .lightGray))
+                .done()
         }
     }
 }
@@ -102,14 +109,31 @@ extension TransactionListScreen: UITableViewDelegate, UITableViewDataSource {
         let cell = self.tableView.cellInstance(of: TransactionCell.self, style: .default)
         
         let transaction = self.transaction(at: indexPath)
-        cell.txHash.text = transaction.hash
+//        cell.txHash.text = "Tx ID: \(transaction.hash)"
+        
+        cell.from.text = "From: \(transaction.from)"
+        cell.to.text = "To: \(transaction.to)"
+        cell.time.text = GDateFormatter().format("yyyy-MM-dd HH:mm").string(from: Date(timeIntervalSince1970: TimeInterval(transaction.timeStamp)))
         cell.price.text = "\(transaction.valueInEth) ETH"
+        
+        cell.from.color(.black).done()
+        cell.to.color(.black).done()
+
+        // TODO: Use EIP55 across the board
+        if let address = Settings.instance.publicKey?.uppercased() {
+            if address == transaction.from.uppercased() {
+                cell.to.color(.txOut).font(nil, traits: .traitBold).done()
+            }
+            if address == transaction.to.uppercased() {
+                cell.from.color(.txIn).font(nil, traits: .traitBold).done()
+            }
+        }
         
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        nav.push(TransactionDetailScreen(transaction: transaction(at: indexPath)))
+//        nav.push(TransactionDetailScreen(transaction: transaction(at: indexPath)))
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
