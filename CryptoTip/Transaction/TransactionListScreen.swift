@@ -5,9 +5,7 @@ class TransactionListScreen: GScreen {
     fileprivate var transactions = [Transaction]()
     fileprivate lazy var addressPanel = WalletAddressPanel(nav: nav)
     
-//    open override func screenContent() -> UIView {
-//        return self.tableView
-//    }
+    private let tableHeader = GHeaderFooterView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,10 +61,23 @@ class TransactionListScreen: GScreen {
             ]
             
             _ = Rest.get(url: "\(Build.instance.etherscanHost())/api", params: params).execute(indicator: refresher) { json in
-                for transactionJson in json["result"].arrayValue {
-                    self.transactions.append(Transaction(json: transactionJson))
+                let items = json["result"].arrayValue
+                if items.count > 0 {
+                    for transactionJson in items {
+                        self.transactions.append(Transaction(json: transactionJson))
+                    }
                 }
-                
+                else {
+                    self.tableHeader
+                        .clear()
+                        .append(self.addressPanel)
+                        .append(GLabel()
+                            .paddings(t: 30, l: 20, b: 10, r: 20)
+                            .specs(.p)
+                            .align(.center)
+                            .text("You haven't made a transaction. Please send coins from the Send screen."))
+                        .done()
+                }
                 self.tableView.reloadData()
                 return true
             }
@@ -102,6 +113,6 @@ extension TransactionListScreen: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return GHeaderFooterView().append(addressPanel)
+        return tableHeader
     }
 }

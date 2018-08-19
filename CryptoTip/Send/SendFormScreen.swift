@@ -56,7 +56,7 @@ class SendFormScreen: GFormScreen {
             view
                 .paddings(t: 10, l: 20, b: 10, r: 20)
                 .append(GSplitPanel().width(.matchParent).withViews(self.fiatToEthLabel, self.ethToFiatLabel))
-                .end()
+                .done()
         }
         
         section2.append(conversionField)

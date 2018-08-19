@@ -22,7 +22,7 @@ class SettingsScreen: GFormScreen {
                 .paddings(t: 10, l: 20, b: 10, r: 20)
                 .append(GLabel().text("Wallet address:"))
                 .append(self.addressLabel)
-                .end()
+                .done()
         }
         
         // Hide this to simplify usage
