@@ -20,6 +20,7 @@
 		C137F17420DE44BB001A9900 /* EthereumKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137F17320DE44BB001A9900 /* EthereumKit.framework */; };
 		C137F17720DE6FBF001A9900 /* GButtonSpec+My.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137F17620DE6FBF001A9900 /* GButtonSpec+My.swift */; };
 		C137F17920DF1E4B001A9900 /* WalletEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137F17820DF1E4B001A9900 /* WalletEditScreen.swift */; };
+		C1600F9F2129961C00FAEB06 /* EIP55.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1600F9E2129961C00FAEB06 /* EIP55.swift */; };
 		C19F8FCD20EDD29800818C97 /* CryptoTipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19F8FCC20EDD29800818C97 /* CryptoTipTests.swift */; };
 		C19F8FD520EDD2DD00818C97 /* Erc681Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19F8FD420EDD2DD00818C97 /* Erc681Tests.swift */; };
 		C1D829D520BF841A0042B413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D829D420BF841A0042B413 /* AppDelegate.swift */; };
@@ -73,6 +74,7 @@
 		C137F17320DE44BB001A9900 /* EthereumKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EthereumKit.framework; path = Carthage/Build/iOS/EthereumKit.framework; sourceTree = "<group>"; };
 		C137F17620DE6FBF001A9900 /* GButtonSpec+My.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GButtonSpec+My.swift"; sourceTree = "<group>"; };
 		C137F17820DF1E4B001A9900 /* WalletEditScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletEditScreen.swift; sourceTree = "<group>"; };
+		C1600F9E2129961C00FAEB06 /* EIP55.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIP55.swift; sourceTree = "<group>"; };
 		C19F8FCA20EDD29700818C97 /* CryptoTipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoTipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C19F8FCC20EDD29800818C97 /* CryptoTipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTipTests.swift; sourceTree = "<group>"; };
 		C19F8FCE20EDD29800818C97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			children = (
 				C1D829E720BF85840042B413 /* Keys.swift */,
 				C120F01D20E61F06006FAF76 /* Erc681.swift */,
+				C1600F9E2129961C00FAEB06 /* EIP55.swift */,
 				C1D829E820BF85840042B413 /* MyMenuNavController.swift */,
 				C1D829E920BF85840042B413 /* UIColor+My.swift */,
 				C1D829EA20BF85840042B413 /* MyHttpDelegate.swift */,
@@ -504,6 +507,7 @@
 				C1D829D720BF841A0042B413 /* ViewController.swift in Sources */,
 				C137F17920DF1E4B001A9900 /* WalletEditScreen.swift in Sources */,
 				C137F17720DE6FBF001A9900 /* GButtonSpec+My.swift in Sources */,
+				C1600F9F2129961C00FAEB06 /* EIP55.swift in Sources */,
 				C137F16E20DE3F5A001A9900 /* WalletCreateScreen.swift in Sources */,
 				C1D82A0A20BF88420042B413 /* WalletAddressPanel.swift in Sources */,
 				C1D829F220BF85840042B413 /* Keys.swift in Sources */,
