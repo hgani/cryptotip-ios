@@ -27,6 +27,10 @@ class SendReviewScreen: GScreen {
         nav
             .color(bg: .navbarBg, text: .navbarText)
         
+        container.content.addView(
+            scrollPanel.paddings(t: 20, l: 20, b: 20, r: 20)
+        )
+        
         scrollPanel.paddings(t: 40, l: 20, b: 10, r: 20).done()
         
         scrollPanel.addView(GLabel().text("To: \(payload.recipient)"))
