@@ -21,6 +21,7 @@
 		C137F17720DE6FBF001A9900 /* GButtonSpec+My.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137F17620DE6FBF001A9900 /* GButtonSpec+My.swift */; };
 		C137F17920DF1E4B001A9900 /* WalletEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137F17820DF1E4B001A9900 /* WalletEditScreen.swift */; };
 		C1600F9F2129961C00FAEB06 /* EIP55.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1600F9E2129961C00FAEB06 /* EIP55.swift */; };
+		C1600FA1212A566700FAEB06 /* EthNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1600FA0212A566700FAEB06 /* EthNet.swift */; };
 		C19F8FCD20EDD29800818C97 /* CryptoTipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19F8FCC20EDD29800818C97 /* CryptoTipTests.swift */; };
 		C19F8FD520EDD2DD00818C97 /* Erc681Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19F8FD420EDD2DD00818C97 /* Erc681Tests.swift */; };
 		C1D829D520BF841A0042B413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D829D420BF841A0042B413 /* AppDelegate.swift */; };
@@ -75,6 +76,7 @@
 		C137F17620DE6FBF001A9900 /* GButtonSpec+My.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GButtonSpec+My.swift"; sourceTree = "<group>"; };
 		C137F17820DF1E4B001A9900 /* WalletEditScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletEditScreen.swift; sourceTree = "<group>"; };
 		C1600F9E2129961C00FAEB06 /* EIP55.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIP55.swift; sourceTree = "<group>"; };
+		C1600FA0212A566700FAEB06 /* EthNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthNet.swift; sourceTree = "<group>"; };
 		C19F8FCA20EDD29700818C97 /* CryptoTipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoTipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C19F8FCC20EDD29800818C97 /* CryptoTipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTipTests.swift; sourceTree = "<group>"; };
 		C19F8FCE20EDD29800818C97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				C1D829FD20BF88420042B413 /* SettingsScreen.swift */,
+				C1600FA0212A566700FAEB06 /* EthNet.swift */,
 				C1108AB120EB095A00983274 /* Settings.swift */,
 				C1D829FE20BF88420042B413 /* WalletAddressPanel.swift */,
 			);
@@ -520,6 +523,7 @@
 				C1D829F720BF85840042B413 /* DevelopmentBuild.swift in Sources */,
 				C1D829F820BF85840042B413 /* Build.swift in Sources */,
 				C1D829F520BF85840042B413 /* MyHttpDelegate.swift in Sources */,
+				C1600FA1212A566700FAEB06 /* EthNet.swift in Sources */,
 				C1D829F420BF85840042B413 /* UIColor+My.swift in Sources */,
 				C10A93B121046F8700A6919A /* WalletHelper.swift in Sources */,
 				C1108AB220EB095A00983274 /* Settings.swift in Sources */,

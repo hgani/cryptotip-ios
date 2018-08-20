@@ -51,10 +51,10 @@ class SendReviewScreen: GScreen {
             return
         }
         
-        let wallet = Wallet(network: Settings.instance.network(), privateKey: key, debugPrints: true)
+        let wallet = Wallet(network: EthNet.instance.network, privateKey: key, debugPrints: true)
         let address = wallet.generateAddress()
         
-        Settings.instance.geth().getTransactionCount(of: address) { (result) in
+        EthNet.instance.geth.getTransactionCount(of: address) { (result) in
             switch result {
             case .success(let nonce):
                 self.submitTransaction(wallet: wallet, nonce: nonce)
@@ -77,7 +77,7 @@ class SendReviewScreen: GScreen {
             return
         }
         
-        Settings.instance.geth().sendRawTransaction(rawTransaction: tx) { transaction in
+        EthNet.instance.geth.sendRawTransaction(rawTransaction: tx) { transaction in
             switch transaction {
             case .success(let tx):
                 self.launch.alert("Done. Transaction ID: \(tx.id)")

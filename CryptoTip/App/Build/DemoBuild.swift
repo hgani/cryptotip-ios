@@ -5,7 +5,7 @@ class DemoBuild: BuildConfig, MyBuildConfig {
         return "https://quicktip-demo.herokuapp.com"
     }
     
-    func etherscanHost() -> String {
-        return "https://rinkeby.etherscan.io"
-    }
+//    func etherscanHost() -> String {
+//        return "https://rinkeby.etherscan.io"
+//    }
 }

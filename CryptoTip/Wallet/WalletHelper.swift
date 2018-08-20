@@ -28,7 +28,7 @@ class WalletHelper {
     func createWallet(mnemonic: [String], password: String) -> (String, Data)? {
         do {
             let seed = try Mnemonic.createSeed(mnemonic: mnemonic)
-            let wallet = try Wallet(seed: seed, network: Settings.instance.network(), debugPrints: true)
+            let wallet = try Wallet(seed: seed, network: EthNet.instance.network, debugPrints: true)
             
             let data = wallet.dumpPrivateKey().data(using: .utf8)
             let encryptedPrivateKey = RNCryptor.encrypt(data: data!, withPassword: password)

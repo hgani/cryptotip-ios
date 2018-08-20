@@ -65,7 +65,7 @@ class TransactionListScreen: GScreen {
                 .append(self.addressPanel)
                 .done()
             
-            _ = Rest.get(url: "\(Build.instance.etherscanHost())/api", params: params).execute(indicator: refresher) { json in
+            _ = Rest.get(url: "\(EthNet.instance.etherscanHost)/api", params: params).execute(indicator: refresher) { json in
                 let items = json["result"].arrayValue
                 if items.count > 0 {
                     for transactionJson in items {
