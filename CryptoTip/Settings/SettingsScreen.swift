@@ -3,7 +3,7 @@ import Eureka
 import web3swift
 
 class SettingsScreen: GFormScreen {
-    private var section = Section()
+    private var walletSection = Section()
     private var miscSection = Section()
     private let addressLabel = GLabel().specs(.small).copyable()
     
@@ -15,10 +15,10 @@ class SettingsScreen: GFormScreen {
         nav
             .color(bg: .navbarBg, text: .navbarText)
         
-        form += [section, miscSection]
+        form += [walletSection, miscSection]
         
         // TODO: Display balance
-        section.header = setupHeaderFooter() { view in
+        walletSection.header = setupHeaderFooter() { view in
             view
                 .paddings(t: 10, l: 20, b: 10, r: 20)
                 .append(GLabel().text("Wallet address:"))
@@ -27,7 +27,7 @@ class SettingsScreen: GFormScreen {
         }
         
         // Hide this to simplify usage
-//        section.append(LabelRow() { row in
+//        walletSection.append(LabelRow() { row in
 //            row.title = "Enter existing wallet address"
 //            row.cellStyle = .value1
 //            }.cellUpdate { (cell, row) in
@@ -36,7 +36,7 @@ class SettingsScreen: GFormScreen {
 //                self.nav.push(WalletEditScreen())
 //        })
         
-        section.append(LabelRow() { row in
+        walletSection.append(LabelRow() { row in
             row.title = "Create new wallet"
             row.cellStyle = .value1
         }.cellUpdate { (cell, row) in
@@ -45,7 +45,7 @@ class SettingsScreen: GFormScreen {
             self.nav.push(WalletCreateScreen())
         })
         
-        section.append(LabelRow() { row in
+        walletSection.append(LabelRow() { row in
             row.title = "Restore wallet"
             row.cellStyle = .value1
             }.cellUpdate { (cell, row) in

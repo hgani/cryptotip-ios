@@ -10,7 +10,7 @@ class SendFormScreen: GFormScreen {
     private let fiatToEthLabel = GLabel().font(nil, size: 14)
     private let ethToFiatLabel = GLabel().font(nil, size: 14)
     
-    private let fiatCurrency = "AUD"
+    private let fiatCurrency = Settings.instance.fiatCurrency
     
     private let conversionField = DataListRow(nil) { row in
         row.options = ["5", "10", "20"]
