@@ -65,8 +65,8 @@ class WalletCreateScreen: GScreen {
             phraseLabel.text(mnemonic.joined(separator: " ")).done()
             
             confirmCreateButton.onClick { _ in
-                KeychainSwift().set(encryptedPrivateKey, forKey: Keys.dbPrivateKey)
-                DbJson.instance.set(Json(publicKey), forKey: Keys.dbPublicKey)
+                KeychainSwift().set(encryptedPrivateKey, forKey: Keys.Db.privateKey)
+                DbJson.instance.set(Json(publicKey), forKey: Keys.Db.publicKey)
                 
                 self.indicator.show(success: "Done!")
                 self.nav.pop().done()

@@ -1,5 +1,7 @@
-enum Keys {
-    static let dbPublicKey = "publicKey"
-    static let dbPrivateKey = "privateKey"
-    static let dbFiatCurrency = "fiatCurrency"
+struct Keys {
+    struct Db {
+        static let publicKey = "publicKey"
+        static let privateKey = "privateKey"
+        static let fiatCurrency = "fiatCurrency"
+    }
 }

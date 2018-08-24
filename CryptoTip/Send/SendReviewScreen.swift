@@ -45,7 +45,7 @@ class SendReviewScreen: GScreen {
     }
     
     private func executeTransaction() {
-        let encData = KeychainSwift().getData(Keys.dbPrivateKey) ?? Data()
+        let encData = KeychainSwift().getData(Keys.Db.privateKey) ?? Data()
         guard let decData = try? RNCryptor.decrypt(data: encData, withPassword: self.passwordField.text ?? ""), let key = String(data: decData, encoding: .utf8) else {
             self.launch.alert("Wrong password")
             return

@@ -51,8 +51,8 @@ class WalletRestoreScreen: GScreen {
         let mnemonic = phraseField.text.components(separatedBy: .whitespacesAndNewlines).filter { !$0.isEmpty }
         if mnemonic.count > 0 {
             if let (publicKey, encryptedPrivateKey) = helper.createWallet(mnemonic: mnemonic, password: password) {
-                KeychainSwift().set(encryptedPrivateKey, forKey: Keys.dbPrivateKey)
-                DbJson.instance.set(Json(publicKey), forKey: Keys.dbPublicKey)
+                KeychainSwift().set(encryptedPrivateKey, forKey: Keys.Db.privateKey)
+                DbJson.instance.set(Json(publicKey), forKey: Keys.Db.publicKey)
                 
                 self.indicator.show(success: "Done!")
                 self.nav.pop().done()
