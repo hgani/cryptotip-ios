@@ -4,6 +4,7 @@ import web3swift
 
 class SettingsScreen: GFormScreen {
     private var section = Section()
+    private var miscSection = Section()
     private let addressLabel = GLabel().specs(.small).copyable()
     
     override func viewDidLoad() {
@@ -14,7 +15,7 @@ class SettingsScreen: GFormScreen {
         nav
             .color(bg: .navbarBg, text: .navbarText)
         
-        form += [section]
+        form += [section, miscSection]
         
         // TODO: Display balance
         section.header = setupHeaderFooter() { view in
@@ -51,6 +52,16 @@ class SettingsScreen: GFormScreen {
                 cell.accessoryType = .disclosureIndicator
             }.onCellSelection { (cell, row) in
                 self.nav.push(WalletRestoreScreen())
+        })
+        
+        miscSection.append(PushRow<String>("fiatCurrency") { row in
+            row.title = "Fiat Currency"
+            row.options = ["USD", "AUD"]
+            row.value = Settings.instance.fiatCurrency
+            }.onChange { row in
+                if let value = row.value {
+                    Settings.instance.fiatCurrency = value
+                }
         })
     }
     
