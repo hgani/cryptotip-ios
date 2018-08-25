@@ -747,8 +747,9 @@
 			baseConfigurationReference = 47A274DFB43F59B55825C509 /* Pods-CryptoTip.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Y7H5UC8BZ9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -761,7 +762,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.cryptotip.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d85b31e2-8470-4e6b-8f36-00fe2806070b";
+				PROVISIONING_PROFILE_SPECIFIER = "CryptoTip Dist";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
