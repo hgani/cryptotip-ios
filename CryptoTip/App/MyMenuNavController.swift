@@ -5,6 +5,7 @@ class MyMenuNavController: MenuNavController {
         menu.add(MenuItem(title: "Receive").icon("fa:shoppingbag").screen(ReceiveScreen()))
         menu.add(MenuItem(title: "Send").icon("fa:flag").screen(SendScreen()))
         menu.add(MenuItem(title: "Transactions").icon("fa:calendar").screen(TransactionListScreen()))
+        menu.add(MenuItem(title: "Settings").icon("fa:gear").screen(SettingsScreen()))
     }
 }
 
