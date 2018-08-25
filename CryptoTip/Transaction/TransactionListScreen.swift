@@ -86,6 +86,7 @@ class TransactionListScreen: GScreen {
 //                .done()
         }
         else {
+            refresher.hide()
             displayEmptyList()
         }
     }

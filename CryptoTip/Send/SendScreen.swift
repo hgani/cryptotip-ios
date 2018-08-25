@@ -23,21 +23,41 @@ class SendScreen: GScreen {
         scrollPanel.addView(GLabel()
             .width(.matchParent)
             .align(.center)
-            .text("Scan the recipient's QR wallet to send coins"), top: 50)
+            .text("Easily send coins using QR Code"), top: 50)
         
-        scrollPanel.addView(GLabel()
-            .width(.matchParent)
-            .align(.center)
-            .specs(.p)
-            .text("Click the QR icon below to start"), top: 40)
+        scrollPanel.addView(
+            GAligner()
+                .width(.matchParent)
+                .withView(
+                    GLabel()
+                        .specs(.p)
+                        .text("1. Recipient shows you their wallet address' QR code\n2. Scan the QR code to get their wallet address")
+                )
+            , top: 10
+        )
         
-        scrollPanel.addView(GLabel()
+        scrollPanel.addView(GAligner()
             .width(.matchParent)
-            .align(.center)
-            .icon("fa:qrcode", size: 120)
-            .onClick({ _ in
-                self.openQrScanner()
-            }), top: 10)
+            .withView(
+                GButton()
+                    .specs(.primary)
+                    .title("Scan QR Code").iconify()
+                    .onClick { _ in self.openQrScanner() }
+            ), top: 40)
+        
+//        scrollPanel.addView(GLabel()
+//            .width(.matchParent)
+//            .align(.center)
+//            .specs(.p)
+//            .text("Click the QR icon below to start"), top: 40)
+//
+//        scrollPanel.addView(GLabel()
+//            .width(.matchParent)
+//            .align(.center)
+//            .icon("fa:qrcode", size: 120)
+//            .onClick({ _ in
+//                self.openQrScanner()
+//            }), top: 10)
     }
     
     func openQrScanner() {
@@ -70,6 +90,7 @@ class SendScreen: GScreen {
 extension SendScreen: QRCodeReaderViewControllerDelegate {
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         reader.stopScanning()
+        dismiss(animated: true, completion: nil)
         
         process(value: result.value)
     }
