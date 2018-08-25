@@ -49,7 +49,7 @@ class SendReviewScreen: GScreen {
         
         let encData = KeychainSwift().getData(Keys.Db.privateKey) ?? Data()
         guard let decData = try? RNCryptor.decrypt(data: encData, withPassword: self.passwordField.text ?? ""), let key = String(data: decData, encoding: .utf8) else {
-            self.alert("Wrong password")
+            self.indicator.show(alert: "Wrong password")
             return
         }
         
@@ -62,35 +62,30 @@ class SendReviewScreen: GScreen {
                 self.submitTransaction(wallet: wallet, nonce: nonce)
                 break
             case .failure(let error):
-                self.alert("Failed initiating transaction: \(error.localizedDescription)")
+                self.indicator.show(alert: "Failed initiating transaction: \(error.localizedDescription)")
             }
         }
     }
     
-    private func alert(_ message: String) {
-        self.indicator.hide()
-        self.launch.alert(message)
-    }
-    
     private func submitTransaction(wallet: Wallet, nonce: Int) {
         guard let wei = try? Converter.toWei(ether: Ether(payload.amount)) else {
-            self.alert("Invalid amount")
+            self.indicator.show(alert: "Invalid amount")
             return
         }
         
         let rawTx = RawTransaction(value: wei, to: self.payload.recipient, gasPrice: Converter.toWei(GWei: 10), gasLimit: 21000, nonce: nonce)
         guard let tx = try? wallet.sign(rawTransaction: rawTx) else {
-            self.alert("Failed signing transaction")
+            self.indicator.show(alert: "Failed signing transaction")
             return
         }
         
         EthNet.instance.geth.sendRawTransaction(rawTransaction: tx) { transaction in
             switch transaction {
             case .success(let tx):
-                self.alert("Done. Transaction ID: \(tx.id)")
+                self.indicator.show(alert: "Done. Transaction ID: \(tx.id)")
                 break
             case .failure(let error):
-                self.alert("Failed submitting transaction: \(error.localizedDescription)")
+                self.indicator.show(alert: "Failed submitting transaction: \(error.localizedDescription)")
             }
         }
     }
