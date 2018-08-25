@@ -83,7 +83,7 @@ class SendReviewScreen: GScreen {
         EthNet.instance.geth.sendRawTransaction(rawTransaction: tx) { transaction in
             switch transaction {
             case .success(let tx):
-                self.indicator.show(alert: "Done. Transaction ID: \(tx.id)")
+                self.indicator.show(alert: "Done. A record of this transaction should appear in the Transactions screen in a few minutes.\n\nTransaction ID: \(tx.id)")
                 break
             case .failure(let error):
                 self.indicator.show(alert: "Failed submitting transaction: \(error.localizedDescription)")
