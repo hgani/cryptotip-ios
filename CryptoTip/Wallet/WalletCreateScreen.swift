@@ -73,6 +73,8 @@ class WalletCreateScreen: GScreen {
                 }.done()
             
             walletPanel.hidden(false).done()
+            
+            UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
         }
     }
 }
