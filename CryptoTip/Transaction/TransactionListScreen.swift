@@ -18,6 +18,8 @@ class TransactionListScreen: GScreen {
         self
             .leftMenu(controller: MyMenuNavController())
             .done()
+        
+        container.header.addView(addressPanel)
 
         container.content.addView(
             tableView
@@ -47,6 +49,8 @@ class TransactionListScreen: GScreen {
         self.transactions.removeAll()
         self.tableView.reloadData()
         
+        self.tableHeader.clear().done()
+        
         if let address = Settings.instance.publicKey {
             let params = [
                 "apikey": "8XY5G7CC8CYMAJ267UBE58QNWDG1H49JHT",
@@ -60,10 +64,8 @@ class TransactionListScreen: GScreen {
                 "offset": "50"
             ]
             
-            self.tableHeader
-                .clear()
-                .append(self.addressPanel)
-                .done()
+//                .append(self.addressPanel)
+//                .done()
             
             _ = Rest.get(url: "\(EthNet.instance.etherscanHost)/api", params: params).execute(indicator: refresher) { json in
                 let items = json["result"].arrayValue
@@ -73,22 +75,28 @@ class TransactionListScreen: GScreen {
                     }
                 }
                 else {
-                    self.tableHeader
-                        .append(GLabel()
-                            .paddings(t: 30, l: 20, b: 10, r: 20)
-                            .specs(.p)
-                            .align(.center)
-                            .text("You haven't made a transaction. Please send coins from the Send screen."))
-                        .done()
+                    self.displayEmptyList()
                 }
                 self.tableView.reloadData()
                 return true
             }
             
-            self.tableHeader
-                .append(GView().width(.matchParent).height(1).color(bg: .lightGray))
-                .done()
+//            self.tableHeader
+//                .append(GView().width(.matchParent).height(1).color(bg: .lightGray))
+//                .done()
         }
+        else {
+            displayEmptyList()
+        }
+    }
+    
+    private func displayEmptyList() {
+        self.tableHeader
+            .append(GLabel()
+                .paddings(t: 30, l: 20, b: 10, r: 20)
+                .align(.center)
+                .text("You haven't made a transaction. Please send coins from the Send screen."))
+            .done()
     }
 }
 

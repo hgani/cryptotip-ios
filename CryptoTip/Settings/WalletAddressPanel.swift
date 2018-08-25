@@ -12,18 +12,23 @@ class WalletAddressPanel: GVerticalPanel {
         let addressView = GVerticalPanel()
             .append(GLabel().text("Your wallet address:"))
             .append(addressLabel)
-        let content = GSplitPanel()
-            .width(.matchParent)
-            .withViews(
-                addressView,
-                GLabel().specs(.a).text("settings").onClick { _ in
-                    nav.push(SettingsScreen())
-            })
+//        let content = GSplitPanel()
+//            .width(.matchParent)
+//            .withViews(
+//                addressView,
+//                GLabel().specs(.a).text("settings").onClick { _ in
+//                    nav.push(SettingsScreen())
+//            })
         
-        self.width(.matchParent)
-            .paddings(t: 10, l: 10, b: 10, r: 10)
-            .append(content)
-            .append(GLabel().specs(.small).text("Network: \(EthNet.instance.simpleName)"), top: 10)
+        self
+            .width(.matchParent)
+            .color(bg: .faintShade)
+            .append(GVerticalPanel()
+                .paddings(t: 10, l: 10, b: 10, r: 10)
+                .append(addressView)
+                .append(GLabel().specs(.small).text("Network: \(EthNet.instance.simpleName)"), top: 10)
+            )
+            .append(GView().width(.matchParent).height(1).color(bg: .lightGray))
             .done()
         
         reload()

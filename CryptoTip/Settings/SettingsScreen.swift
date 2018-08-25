@@ -12,6 +12,10 @@ class SettingsScreen: GFormScreen {
         
         self.title = "Settings"
         
+        self
+            .leftMenu(controller: MyMenuNavController())
+            .done()
+        
         nav
             .color(bg: .navbarBg, text: .navbarText)
         
