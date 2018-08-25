@@ -29,7 +29,7 @@ class WalletCreateScreen: GScreen {
                 .text("This will replace the current wallet. Make sure you've backed up the wallet before creating a new one."), top: 50)
         }
         
-        scrollPanel.addView(GLabel().text("Enter password to protect the restored wallet"), top: 20)
+        scrollPanel.addView(GLabel().text("Enter password to protect your new wallet"), top: 20)
         scrollPanel.addView(passwordField, top: 10)
         scrollPanel.addView(confirmPasswordField, top: 10)
         
