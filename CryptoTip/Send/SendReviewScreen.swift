@@ -68,8 +68,9 @@ class SendReviewScreen: GScreen {
     }
     
     private func submitTransaction(wallet: Wallet, nonce: Int) {
-        guard let wei = try? Converter.toWei(ether: Ether(payload.amount)) else {
-            self.indicator.show(alert: "Invalid amount")
+        // Use String() instead of Ether() (which is an alias for Decimal) to avoid error caused by infinite decimal places.
+        guard let wei = try? Converter.toWei(ether: String(payload.amount)) else {
+            self.indicator.show(alert: "Invalid amount: \(payload.amount)")
             return
         }
         
