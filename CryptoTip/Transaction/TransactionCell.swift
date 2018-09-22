@@ -20,7 +20,7 @@ class TransactionCell: GTableViewCustomCell {
 //            .append(txHash)
             .append(from)
             .append(to)
-            .append(GSplitPanel().width(.matchParent).withViews(time, price))
+            .append(GSplitPanel().width(.matchParent).withViews(time, GView(), price))
             .done()
     }
     

@@ -55,7 +55,7 @@ class SendFormScreen: GFormScreen {
         section2.header = setupHeaderFooter() { view in
             view
                 .paddings(t: 10, l: 20, b: 10, r: 20)
-                .append(GSplitPanel().width(.matchParent).withViews(self.fiatToEthLabel, self.ethToFiatLabel))
+                .append(GSplitPanel().width(.matchParent).withViews(self.fiatToEthLabel, GView(), self.ethToFiatLabel))
                 .done()
         }
         
